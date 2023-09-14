@@ -15,7 +15,7 @@ import DrawerComp from "./Drawer";
 import Footer from "./Footer";
 import error from "../assets/img/users/error.jpg";
 import "./PageNotfound.css";
-import Axios from "../../../../utils/axios";
+import Axios from "../../app/utils/Axios";
 
 const heading = {
   fontWeight: "500",

@@ -45,10 +45,14 @@ import PostAJob from "../pages/users/recruiter/PostAJob";
 import EditProfileCompany from "../pages/users/admin/EditProfileCompany";
 
 
-import AdminLogin from "../pages/users/auth/login/adminlogin/Login";
+import AdminLogin  from '../pages/users/auth/login/adminlogin/Login';
 import UserLogin from "../pages/users/auth/login/userlogin/Login";
 import AdminRegister from "../pages/users/auth/register/adminregister/Register";
 import UserRegister from "../pages/users/auth/register/userregister/Register";
+
+import Success from '../partials/Success';
+import Failed from '../partials/Failed';
+import PageNotFound from '../partials/PageNotFound';
 function AppRouter() {
   return (
     <Routes>
@@ -87,9 +91,10 @@ function AppRouter() {
       <Route path="/editprofilecompany" element={<EditProfileCompany />} ></Route>
 
       {/* ====MISCALLANEOUS ROUTES===== */}
-      {/* <Route path="/success" element={<Success />}></Route>
+      <Route path="/success" element={<Success />}></Route>
       <Route path="/failed" element={<Failed />}></Route>
-      <Route path='/pop' element={<Pop/>}></Route>  */}
+      <Route path='/pop' element={<Pop/>}></Route> 
+      <Route path ='/*'  element={<PageNotFound/>}></Route>
 
       {/*-------------- Authentication Pages --------------*/}
       <Route path="/adminlogin" element={<AdminLogin />}></Route>

@@ -17,7 +17,7 @@ const InactiveCandidate = () => {
     const fetchGetAllInactiveCandidate = async () => {
       setLoading(true);
       try {
-        const response = await Axios.get('/getalldeactivejobseeke');
+        const response = await Axios.get('/getalldeactivejobseeker');
         setData(response.data.data); // Update the state with fetched data
         console.log(response.data.data)
       } catch (error) {

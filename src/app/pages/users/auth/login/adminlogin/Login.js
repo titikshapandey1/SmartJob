@@ -1,42 +1,39 @@
 import React, { useEffect, useState } from "react";
-import "./Login.css";
-import { TextField, Button, FormControl, Box, Typography, InputAdornment, IconButton } from "@mui/material";
-import Divider from "@mui/material/Divider";
-import Grid from "@mui/material/Grid";
-import { Checkbox, FormControlLabel } from "@mui/material";
-import { useFormik } from "formik";
-import * as Yup from "yup";
-import { useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
-import Vector4 from "../../../../../assets/img/Vector 4.png";
+//  import { Link } from 'react-router-dom';
+
+import {
+  Box,
+  Button,
+  Checkbox,
+  Container,
+  Divider,
+  FormControlLabel,
+  Grid,
+  IconButton,
+  InputAdornment,
+  TextField,
+  Typography,
+} from "@mui/material";
+
+
+import { NavLink } from "react-router-dom";
+import Vector1 from "../../../../../assets/img/Vector1.png";
 import Vector2 from "../../../../../assets/img/Vector2.png";
+import admin from "../../../../../assets/img/admin-01 1.png";
 import Google from "../../../../../assets/img/Google.png";
 import Facebook from "../../../../../assets/img/Facebook.png";
 import Linkedin from "../../../../../assets/img/Linkedin.png";
-import admin from "../../../../../assets/img/admin-01 1.png";
-import colors from "../../../../../utils/colors";
-// import Axios from "../../../../../utils/axios";
+import colors from "../../../../../utils/colors"
 
+// import Frame from "../../../../../assets/img/Frame 2.png";
+
+// import { useFormik } from "formik/dist";
+// import * as Yup from "yup";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
+import Icondialogue from "../../../../../partials/Icondialogue";
 const AdminLogin = () => {
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = React.useState(false);
   const [showPassword, setShowPassword] = React.useState(false);
-
- // const [loading, setLoading] = useState(false);
-  // const [data, setData] = useState([]);
-
-  // const GetAdminLogin = async () => {
-  //   try {
-  //     const response = await Axios.get("/login");
-  //     setData(response.data.data);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   GetAdminLogin();
-  // }, []);
 
   const handleChange = (event) => {
     setChecked(event.target.checked);
@@ -46,326 +43,287 @@ const AdminLogin = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
 
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+//   const validationSchema = Yup.object({
+//     email: Yup.string().required("Email/Username is required"),
+//     password: Yup.string().required("Password is required"),
+//   });
 
-  const validationSchema = Yup.object({
-    email: Yup.string().required("Email/Username is required"),
-    password: Yup.string().required("Password is required"),
-  });
-
-  const formik = useFormik({
-    initialValues: {
-      email: "",
-      password: "",
-    },
-    validationSchema: validationSchema,
-    onSubmit:async (values) => {
-
-      // try {
-      //   const response = await Axios.get("/login", values); 
-      //   if (response.data.success) {
-      //     console.log("Login successful");
-      //   } else {
-      //     console.log("Login failed");
-      //   }
-      // } catch (error) {
-      //   console.error("An error occurred during login", error);
-      // }
-    },
-  });
+//   const formik = useFormik({
+//     initialValues: {
+//       email: "",
+//       password: "",
+//     },
+//     validationSchema: validationSchema,
+//     onSubmit: async (values) => {},
+//   });
 
   return (
-    <div className="top">
-      <div className="top1">
-        <img
-          src={Vector4}
-          alt=""
-          style={{
-            width: "100%",
-            height: "218.06px",
-            top: "-2px",
-            left: "-3px",
+    <Box sx={{ overflow: "hidden" }}>
+      <img
+       alt=""
+        src={Vector1}
+        style={{ width: "100%", height: "auto", maxHeight: "100%" }}
+      />
+      <Box sx={{ display: { xs: "Block", md: "flex" } }}>
+        {/************************************ left part **************************/}
+
+        <Box
+          sx={{
+            width: { xs: "100%", md: "50%" },
+            height: "auto",
+            justifyContent: "center", // Center content vertically
+            alignItems: "center", // Center content horizontally
+            textAlign: "center", // Center text
+            display: { xs: "none", sm: "none", md: "initial" },
           }}
-        />
-      </div>
+        >
+          
+            
 
-      {/* <Typography
-        style={{
-          position: "absolute",
-          top: "79px",
-          right: "500px",
-          fontSize: "36px",
-          lineHeight: "54px",
-          fontWeight: "600",
-          fontFamily: "Poppins",
-          color: "#6973FE",
-          width: "98px",
-          height: "54px",
-        }}
-      >
-       Admin LogIn
-      </Typography> */}
+         
 
-      {/* It is the middle Part */}
-      <div className="middle">
-    
-        <div className="midleft" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-  <img src={admin} alt="" style={{ maxHeight: '100%', maxWidth: '100%', width: 'auto', height: 'auto' }} />
-</div>
+         <Typography  >
+            <img src={admin}  alt="" />
+            </Typography>
+        </Box>
 
+        {/**************** divider between left and right ***************/}
 
-        {/* It is divider lie between middle left and right */}
         <Divider
-          orientation={isMobile ? "horizontal" : "vertical"}
+          orientation="vertical"
           flexItem
           sx={{
             height: { xs: "1px", sm: "auto" },
-            width: isMobile ? "100%" : "1px",
+            width: "1px",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             color: "#000000",
-            "@media (max-width: 600px)": {
-              writingMode: "horizontal-tb",
-              marginTop: "20px",
-              marginBottom: "20px",
+            "@media (max-width: 900px)": {
+              display: "none",
             },
           }}
         ></Divider>
 
-         {/* It is the middle Right Part */}
-        <div className="midright" >
-          <form onSubmit={formik.handleSubmit}>
-            <FormControl>
-              <Box sx={{ flexGrow: 1 }}>
-                <Grid container spacing={2.24}>
-                  <Grid item xs={12} sm={9}>
-                    <TextField
-                      id="email"
-                      name="email"
-                      label="Email/Username"
-                      type="email"
-                      variant="outlined"
-                      fullWidth
-                      InputProps={{ sx: { borderRadius: "33px" } }}
-                      value={formik.values.email}
-                      onChange={formik.handleChange}
-                      error={formik.touched.email && Boolean(formik.errors.email)}
-                      helperText={formik.touched.email && formik.errors.email}
-                      style={{ marginLeft: "10%" }}
-                    />
-                  </Grid>
+        {/*************************** Right part ************************/}
 
-                  <Grid item xs={12} sm={9}>
-                    <TextField
-                      id="password"
-                      label="Password"
-                      type={showPassword ? "text" : "password"}
-                      variant="outlined"
-                      fullWidth
-                      InputProps={{
-                        sx: { borderRadius: "33px" },
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <IconButton onClick={handleShowPassword} edge="end">
-                              {showPassword ? <VisibilityOff /> : <Visibility />}
-                            </IconButton>
-                          </InputAdornment>
-                        ),
-                      }}
-                      value={formik.values.password}
-                      onChange={formik.handleChange}
-                      error={formik.touched.password && Boolean(formik.errors.password)}
-                      helperText={formik.touched.password && formik.errors.password}
-                      style={{ marginLeft: "10%" }}
-                    />
-                  </Grid>
+        <Box
+          sx={{
+            width: { xs: "100%", md: "50%" },
+            mb: { xs: "50px", md: "20px" },
+            height: "auto",
+            justifyContent: "center", // Center content vertically
+            alignItems: "center",
+            textAlign: "center", // Center content horizontally
+          }}
+        >
+          <Typography variant="h3" sx={{ marginY: "5%", color: '#6973FE' }}>
+            Login
+          </Typography>
+          <Container>
+            <Grid container spacing={2.24}>
+              <Grid item xs={12} sm={10}>
+                <TextField
+                  id="email"
+                  name="email"
+                  label="Email/Username"
+                  type="email"
+                  variant="outlined"
+                  fullWidth
+                  InputProps={{ sx: { borderRadius: "33px" } }}
+                //   value={formik.values.email}
+                //   onChange={formik.handleChange}
+                //   error={formik.touched.email && Boolean(formik.errors.email)}
+                //   helperText={formik.touched.email && formik.errors.email}
+                  // style={{ marginInline: "10%" }}
+                  sx={{ marginInline: { xs: "0%", sm: "10%" } }}
+                />
+              </Grid>
 
-                  <Grid item xs={9}>
-                    <Grid
-                      container
-                      justifyContent="space-between"
-                      alignItems="center"
-                    >
-                      <FormControlLabel
-                        control={
-                          <Checkbox
-                            checked={checked}
-                            className="circular-checkbox"
-                            style={{
-                              marginLeft: "100px",
-                              borderRadius: "50%",
-                              background: colors.textColor,
-                              "& .MuiSvgIcon-root": {
-                                borderRadius: "50%",
-                                background: colors.textColor,
-                                color: colors.textColor,
-                              },
-                            }}
-                            color="default"
-                            onChange={handleChange}
-                          />
-                        }
-                        label={
-                          <Typography variant="body2" style={{color:colors.black}}>
-                            Keep Me Signed in
-                          </Typography>
-                        }
+              <Grid item xs={12} sm={10}>
+                <TextField
+                  id="password"
+                  label="Password"
+                  type={showPassword ? "text" : "password"}
+                  variant="outlined"
+                  fullWidth
+                  InputProps={{
+                    sx: { borderRadius: "33px" },
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton onClick={handleShowPassword} edge="end">
+                          {showPassword ? <VisibilityOff /> : <Visibility />}
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
+                //   value={formik.values.password}
+                //   onChange={formik.handleChange}
+                //   error={
+                //     formik.touched.password && Boolean(formik.errors.password)
+                //   }
+                //   helperText={formik.touched.password && formik.errors.password}
+                  // style={{ marginInline: "10%" }}
+                  sx={{marginInline: {xs: "0%", sm: "10%"}}}
+                />
+              </Grid>
+
+              <Grid item xs={9}>
+                <Grid
+                  container
+                  justifyContent="space-between"
+                  alignItems="center"
+                >
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={checked}
+                        className="circular-checkbox"
+                        style={{
+                          // marginLeft: "100px",
+                          borderRadius: "50%",
+                          background: colors.textColor,
+                          "& .MuiSvgIconRoot": {
+                            borderRadius: "50%",
+                            background: colors.textColor,
+                            color: colors.textColor,
+                          },
+                        }}
+                        sx={{ marginLeft: { xs: "10px", sm: "100px" } }}
+                        color="default"
+                        onChange={handleChange}
                       />
-
+                    }
+                    label={
                       <Typography
                         variant="body2"
-                        style={{ color: colors.background, marginLeft: "100px" }}
+                        style={{ color: colors.black }}
                       >
-                        Forgot Password
+                        Keep Me Signed in
                       </Typography>
-                    </Grid>
-                  </Grid>
+                    }
+                  />
 
-                  <Grid item xs={12} style={{ textAlign: "center" }}>
-                    <Button
-                      type="submit"
-                      sx={{
-                        border: "1px",
-                        borderRadius: "34px",
-                        color: colors.black,
-                        background: colors.textColor,
-                        width: "200px",
-                        height: "54px",
-                        "&:hover": {
-                          backgroundColor: colors.textColor,
-                        },
-                        margin: "0 auto", // Center the button horizontally
-                      }}
-                    >
-                      Login
-                    </Button>
-                  </Grid>
-
-                  <Grid item xs={12}>
-                    <Divider
-                      style={{ color: colors.black }}
-                      variant="middle"
-                      sx={{marginInline: "5%"  }}
-                    >
-                      <Typography variant="h4" style={{ color: colors.black }}> Or </Typography>
-                    </Divider>
-                  </Grid>
-
-                  <Grid item xs={12} style={{ textAlign: "center" }}>
-                    <Button
-                      type="submit"
-                      sx={{
-                        border: colors.shadow, // Set the border color
-                        borderRadius: "34px",
-                        color: colors.black,
-                        background: colors.color,
-                        width: "200px",
-                        height: "54px",
-                        margin: "0 auto", // Center the button horizontally
-                      }}
-                    >
-                      LogIn via OTP
-                    </Button>
-                  </Grid>
-
-                  <Grid item xs={12}>
-                    <Divider
-                      style={{ color: colors.black}}
-                      variant="middle"
-                      sx={{ marginInline: "5%" }}
-                    >
-                      <Typography variant="h4"  style={{ color: colors.black}}>Or</Typography>
-                    </Divider>
-                  </Grid>
-
-                  <Grid
-                    item
-                    xs={12}
-                    container
-                    alignItems="center"
-                    justifyContent="center"
-                    style={{marginInline: "18%"}} 
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      color: colors.background,
+                      marginLeft: { xs: "10px", sm: "100px" },
+                      color: "#6973FE",
+                    }}
                   >
-                    {/* <Grid item xs={2}>
-                      <img
-                        src={Google}
-                        alt=""
-                        style={{ height: "44px", width: "44px" }}
-                      />
-                    </Grid>
-                    <Grid item xs={2}>
-                      <img
-                        src={Facebook}
-                        alt=""
-                        style={{ height: "44px", width: "44px" }}
-                      />
-                    </Grid>
-                    <Grid item xs={1}>
-                      <img
-                        src={Linkedin}
-                        alt=""
-                        style={{ height: "44px", width: "44px" }}
-                      />
-                    </Grid> */}
-                    <div className="logoContainer">
-                      <img src={Google} alt="" className="logo" />
-                      <img src={Facebook} alt="" className="logo" />
-                      <img src={Linkedin} alt="" className="logo" />
-                    </div>
-                  </Grid>
-
-                  <Grid
-                    item
-                    container
-                    alignItems="center"
-                    justifyContent="center"
-                    xs={12}
-                  >
-                    <Typography
-                      variant="h6"
-                      component="p"
-                      sx={{ fontSize: "20px", color: colors.black }}
-                    >
-                      Don’t Have Account?
-                    </Typography>
-                    <Button
-                      sx={{
-                        border: "1px",
-                        borderRadius: "34px",
-                        color: colors.black,
-                        background: colors.textColor,
-                        width: "150px",
-                        height: "40px",
-                        "&:hover": {
-                          backgroundColor: colors.textColor,
-                        },
-                      }}
-                    >
-                      Register
-                    </Button>
-                  </Grid>
+                    Forgot Password
+                  </Typography>
                 </Grid>
-              </Box>
-            </FormControl>
-          </form>
-        </div>
-      </div>
+              </Grid>
 
-      <div className="end">
-        <img
-          src={Vector2}
-          alt=""
-          style={{
-            width: "100%",
-            height: "154px",
-            angle: "180 deg",
-            marginBottom: "-3.7px",
-          }}
-        />
-      </div>
-    </div>
+              <Grid item xs={12} style={{ textAlign: "center" }}>
+              <Button
+                  // component={Link}
+                  // to="/dashboard"
+                  type="submit"
+                  // endIcon={<ArrowForwardIcon />}
+                  sx={{
+                    border: "1px",
+                    borderRadius: "34px",
+                    color: "black",
+                    background: "#CCFFCC",
+                    width: "200px",
+                    height: "54px",
+                    "&:hover": {
+                      backgroundColor: "#6973FE",
+                    },
+                    margin: "0 auto", 
+                  }}
+                  // onClick={formik.handleSubmit}
+                >
+                  <NavLink to="/dashboard">
+
+               Login
+                  </NavLink>
+                </Button>
+              </Grid>
+
+              <Grid item xs={12}>
+                <Divider
+                  style={{ color: 'black'}}
+                  variant="middle"
+                  sx={{ marginInline: "5%" }}
+                >
+                  <Typography variant="h4"> Or </Typography>
+                </Divider>
+              </Grid>
+
+              
+
+
+
+             
+
+              <Grid
+                item
+                xs={12}
+                container
+                alignItems="center"
+                justifyContent="center"
+              >
+                <IconButton type="default">
+                  <img src={Google} alt="" />
+                </IconButton>
+                <Icondialogue/>
+                <IconButton type="default">
+                  <img src={Facebook} alt="" />
+                </IconButton>
+                <IconButton type="default">
+                  <img src={Linkedin} alt="" />
+                </IconButton>
+              </Grid>
+
+              <Grid
+                item
+                container
+                alignItems="center"
+                justifyContent="center"
+                xs={12}
+              >
+                <Typography
+                  variant="h6"
+                  component="p"
+                  sx={{ fontSize: "20px", color: 'black', marginRight: "10px" }}
+                >
+                  Don’t Have Account?
+                </Typography>
+                <Button
+                  sx={{
+                    border: "1px",
+                    borderRadius: "34px",
+                    color: 'black',
+                    background: "#CCFFCC",
+
+                    // background: colors.textColor,
+                    width: "150px",
+                    height: "40px",
+                    "&:hover": {
+                      background:"#6973FE",
+                    },
+                  }}
+                >
+                  <NavLink to ="/adminregister">
+
+                  Register
+                  </NavLink>
+                </Button>
+              </Grid>
+            </Grid>
+          </Container>
+        </Box>
+      </Box>
+      <img 
+         alt=""
+        src={Vector2}
+        style={{ width: "100%", height: "auto", maxHeight: "100%" }}
+      />
+    </Box>
   );
 };
 
