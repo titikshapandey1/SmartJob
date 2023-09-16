@@ -30,8 +30,8 @@ import colors from "../../../../../utils/colors"
 // import { useFormik } from "formik/dist";
 // import * as Yup from "yup";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import Icondialogue from "../../../../../partials/Icondialogue";
-const AdminLogin = () => {
+import Icondialogue from "../../../../../partials/Icondialogue"
+const Login = () => {
   const [checked, setChecked] = React.useState(false);
   const [showPassword, setShowPassword] = React.useState(false);
 
@@ -327,4 +327,4 @@ const AdminLogin = () => {
   );
 };
 
-export default AdminLogin;
+export default Login;

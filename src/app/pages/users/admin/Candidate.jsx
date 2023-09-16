@@ -6,6 +6,7 @@ import Table from"./common/table";
 import Axios from '../../../utils/Axios';
 import Loader from '../../users/admin/common/Loader';
 import { useState, useEffect } from 'react';
+import { Typography } from '@mui/material';
 const Candidate = () => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]); // State to store the fetched data
@@ -29,6 +30,7 @@ const Candidate = () => {
 
   return (
     <div>
+      <Typography  variant='h6'> All Recruiter</Typography>
       <Sidebar/>
       <SearchBar/>
       <Menu/>

@@ -2,8 +2,8 @@ import React from "react";
 import { Link, Route, Routes } from "react-router-dom";
  
 
-import Active from "../pages/users/admin/Active";
-import Inactive from "../pages/users/admin/Inactive";
+import Active1 from "../pages/users/admin/Active";
+import Inactive1 from "../pages/users/admin/Inactive";
 import Dashboard from "../pages/users/admin/Dashboard";
 import Homebanner from "../pages/users/admin/Homebanner";
 import EditRecruiter from "../pages/users/admin/EditRecruiter";
@@ -20,8 +20,8 @@ import Tablebanner from "../pages/users/admin/common/Tablebanner";
 import PendingPostedJob from "../pages/users/admin/Pendingpostedjob";
 import ActivePostedJob from "../pages/users/admin/Activepostedjob";
 import InactivePostedJob from "../pages/users/admin/Inactivepostedjob";
-import Active1 from"../pages/users/admin/ActiveCandidate";
-import Inactive1 from"../pages/users/admin/InactiveCandidate";
+// import Active1 from"../pages/users/admin/ActiveCandidate";
+// import Inactive1 from"../pages/users/admin/InactiveCandidate";
 import EditProfileCompany from "../pages/users/admin/EditProfileCompany";
 
 
@@ -41,16 +41,19 @@ import PostAJob from "../pages/users/recruiter/PostAJob";
 
 
 
-import AdminLogin  from '../pages/users/auth/login/adminlogin/Login';
-import UserLogin from "../pages/users/auth/login/userlogin/Login";
-import AdminRegister from "../pages/users/auth/register/adminregister/Register";
-import UserRegister from "../pages/users/auth/register/userregister/Register";
+import AdminLogin from "../pages/users/auth/login/adminlogin/AdminLogin";
+import UserLogin from "../pages/users/auth/login/userlogin/UserLogin";
+import AdminRegister from "../pages/users/auth/register/adminregister/AdminRegister";
+import UserRegister from "../pages/users/auth/register/userregister/UserRegister";
 
 import Success from '../partials/Success';
 import Failed from '../partials/Failed';
 import PageNotFound from '../partials/PageNotFound';
 import Pop from "../pages/users/admin/Pop";
 import RecruiterJobSeeker from "../pages/users/misscallfile/RecruiterJoobseeker";
+
+
+import EmployerProfile from "../pages/users/recruiter/EmployerProfile";
 
 function AppRouter() {
   return (
@@ -69,6 +72,7 @@ function AppRouter() {
       <Route path="/loginascompany" element={<LoginAsCompany/>}></Route>
       <Route path="/editrecruiterdetails" element={<EditRecruiterDetails/>}></Route>
       <Route path="/postajob" element={<PostAJob />}></Route>
+      <Route path="/EmployerProfile" element={<EmployerProfile />}></Route>  {/*  preeti or harsita part */}
       
 
       {/* =======ADMIN ROUTES========= */}

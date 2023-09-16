@@ -30,7 +30,7 @@ import Icondialogue from"../../../../../partials/Icondialogue"
 // import * as Yup from "yup";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 
-const AdminRegister = () => {
+const Login = () => {
   const [checked, setChecked] = React.useState(false);
   const [showPassword, setShowPassword] = React.useState(false);
 
@@ -409,7 +409,7 @@ const AdminRegister = () => {
   );
 };
 
-export default AdminRegister;
+export default Login;
 
 
 

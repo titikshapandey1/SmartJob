@@ -217,7 +217,7 @@ const PostedJob = ({ Postedtitle, buttonColor }) => {
           >
             
             {data.map((job, index) => (
-                <Grid key={index} item xs={12} md={4}>
+                <Grid key={index} item xs={12} md={6} lg={4}>
                   <PostedJobCard title={job.job_id} Company={job.company_id} Postedtitle1={Postedtitle} Description={job.description } PostedDate={job.created_at} Salary={job.Salary} buttonColor={buttonColor} />
                 </Grid>
               ))}

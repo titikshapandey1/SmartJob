@@ -10,7 +10,8 @@ import {
   useMediaQuery,
 } from "@mui/material";
 
-import Sidebar from "../../../partials/Sidebar";
+// import Sidebar from "../../../partials/Sidebar";
+import Sidebar from "../admin/common/Sidebar";
 import user from "../../../assets/img/users/User.jpg";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 // import Axios from "../../../utils/Axios";

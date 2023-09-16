@@ -3,7 +3,7 @@ import loading from "../../users/admin/common/common-icon/Group 47menu .png";
 import colors from "../../../utils/colors";
 import profile from "../../users/admin/common/common-icon/Userusericon.png";
 import { Box, Button, Typography } from "@mui/material";
-
+import Tooltip from "../../../partials/Tooltip";
 
 const styles = {
   container: {
@@ -138,7 +138,7 @@ const styles = {
   },
   postedBox: {
     height: "2.5vw",
-    width: {xs:"2vw",sm:"4vw",md:"20vw"},
+    width: {xs:"2vw",sm:"8vw",md:"25vw"},
     borderRadius: "45px",
     textAlign: "center",
     marginTop: "0.2vw",
@@ -146,13 +146,14 @@ const styles = {
   postedText: {
     fontSize: {xs:"2.1vw",sm:"1.8vw",md:"1.3vw"},
     fontWeight: "300",
+    marginTop:"-20px"
   },
   
 };
 
 const PostedJobCard = ({ Postedtitle1, buttonColor, Description,PostedDate,Company, Salary }) => {
   
-    Description = `${Description.substring(0,500)}....`;   //POINT TO BE NOTED
+    Description = `${Description.substring(0,100)}....`;   //POINT TO BE NOTED
   
   const postedBox = {
     height: {xs:"3vw",sm:"2.5vw",md:"2vw"},
@@ -160,7 +161,7 @@ const PostedJobCard = ({ Postedtitle1, buttonColor, Description,PostedDate,Compa
     backgroundColor: buttonColor,
     borderRadius: "45px",
     textAlign: "center",
-    marginTop: "0.2vw",
+    marginTop: "1rem",
   };
   return (
     <div>
@@ -201,7 +202,7 @@ const PostedJobCard = ({ Postedtitle1, buttonColor, Description,PostedDate,Compa
     React
   </Button>
   <Button>
-  <img
+  {/* <img
     src={loading}
     alt="loading"
     sx={{
@@ -210,7 +211,10 @@ const PostedJobCard = ({ Postedtitle1, buttonColor, Description,PostedDate,Compa
       height: '10%',
       marginBottom: '1.5vw',
     }}
-  />
+  /> */}
+  <Tooltip/>
+
+
   </Button>
 </Box>
 

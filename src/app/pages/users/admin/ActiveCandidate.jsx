@@ -38,7 +38,7 @@ const ActiveCandidate = () => {
     <Sidebar/>
     
     {console.log('inside app.js')}
-    <Typography justifyContent="center" marginLeft="2rem" variant='h4'>Active Candidate</Typography>
+    <Typography justifyContent="center" marginLeft="2rem" variant='h4'> All  Active Recruiter</Typography>
      
     <Searchbar/>
     <Menu/>

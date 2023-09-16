@@ -49,7 +49,7 @@ const btnstyles = {
   margin: "0 10px",
 };
 
-const Register = () => {
+const Login = () => {
   const [checked, setChecked] = React.useState(false);
   const [showPassword, setShowPassword] = React.useState(false);
 
@@ -408,5 +408,4 @@ const Register = () => {
   );
 };
 
-export default Register;
-
+export default Login;
