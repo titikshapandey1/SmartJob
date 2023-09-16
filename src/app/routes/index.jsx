@@ -1,5 +1,7 @@
 import React from "react";
 import { Link, Route, Routes } from "react-router-dom";
+ 
+
 import Active from "../pages/users/admin/Active";
 import Inactive from "../pages/users/admin/Inactive";
 import Dashboard from "../pages/users/admin/Dashboard";
@@ -8,7 +10,6 @@ import EditRecruiter from "../pages/users/admin/EditRecruiter";
 import Offerbanner from "../pages/users/admin/Offerbanner";
 import Domain from "../pages/users/admin/Domain";
 import Subdomain from "../pages/users/admin/Subdomain";
-import Pop from "../pages/users/admin/Pop";
 import PostedJob from "../pages/users/admin/PostedJob";
 import PostedJobCard from "../pages/users/admin/PostedJobCard";
 import colors from "../utils/colors";
@@ -21,28 +22,23 @@ import ActivePostedJob from "../pages/users/admin/Activepostedjob";
 import InactivePostedJob from "../pages/users/admin/Inactivepostedjob";
 import Active1 from"../pages/users/admin/ActiveCandidate";
 import Inactive1 from"../pages/users/admin/InactiveCandidate";
+import EditProfileCompany from "../pages/users/admin/EditProfileCompany";
 
 
 import Home from "../pages/users/candidate/Home";
 import JobDetails from "../pages/users/candidate/JobDetails";
 import CompanyName from "../pages/users/candidate/CompanyName";
 import JobSeeker from "../pages/users/candidate/JobSeeker";
-
-
-
-import LoginAsCompany from "../pages/users/recruiter/LoginAsCompany";
-import EditRecruiterDetails from "../pages/users/recruiter/EditRecruiterDetails";
 import EditCandidateProfile from "../pages/users/candidate/EditCandidateProfile";
 import EducationDetails1 from "../pages/users/candidate/EducationDetails1";
 import EducationDetails2 from "../pages/users/candidate/EducationDetails2";
 import RegisterLastPage from "../pages/users/candidate/RegisterLastPage";
 
 
-
+import LoginAsCompany from "../pages/users/recruiter/LoginAsCompany";
+import EditRecruiterDetails from "../pages/users/recruiter/EditRecruiterDetails";
 import PostAJob from "../pages/users/recruiter/PostAJob";
-// import Success from "../src/app/partials/Success";
-// import Failed from "../src/app/partials/Failed";
-import EditProfileCompany from "../pages/users/admin/EditProfileCompany";
+
 
 
 import AdminLogin  from '../pages/users/auth/login/adminlogin/Login';
@@ -53,6 +49,9 @@ import UserRegister from "../pages/users/auth/register/userregister/Register";
 import Success from '../partials/Success';
 import Failed from '../partials/Failed';
 import PageNotFound from '../partials/PageNotFound';
+import Pop from "../pages/users/admin/Pop";
+import RecruiterJobSeeker from "../pages/users/misscallfile/RecruiterJoobseeker";
+
 function AppRouter() {
   return (
     <Routes>
@@ -67,9 +66,10 @@ function AppRouter() {
       <Route path="/registerlastpage" element={<RegisterLastPage/>}></Route>
 
       {/* =====RECRUITER ROUTES===== */}
-      <Route path="/loginascomapny" element={<LoginAsCompany/>}></Route>
+      <Route path="/loginascompany" element={<LoginAsCompany/>}></Route>
       <Route path="/editrecruiterdetails" element={<EditRecruiterDetails/>}></Route>
       <Route path="/postajob" element={<PostAJob />}></Route>
+      
 
       {/* =======ADMIN ROUTES========= */}
       
@@ -95,6 +95,7 @@ function AppRouter() {
       <Route path="/failed" element={<Failed />}></Route>
       <Route path='/pop' element={<Pop/>}></Route> 
       <Route path ='/*'  element={<PageNotFound/>}></Route>
+      <Route path ='/RecruiterJobSeeker'  element={<RecruiterJobSeeker/>}></Route>
 
       {/*-------------- Authentication Pages --------------*/}
       <Route path="/adminlogin" element={<AdminLogin />}></Route>

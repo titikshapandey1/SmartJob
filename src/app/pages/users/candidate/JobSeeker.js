@@ -24,7 +24,7 @@ import LocationCityOutlinedIcon from "@mui/icons-material/LocationCityOutlined";
 import NewspaperOutlinedIcon from "@mui/icons-material/NewspaperOutlined";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import Footer from"../../../partials/Footer";
-import "./JobSeeker.css";
+import classes from "./JobSeeker.module.css";
 
 /*========== Images ============ */
 import img1 from "../../../assets/img/users/User.jpg";
@@ -341,7 +341,7 @@ const JobSeeker = () => {
                 </Button>
               </div>
 
-              <div class="block1CLM1">
+              <div className={classes["block1CLM1"]}>
                 <h4>Profile Performance</h4>
                 <Grid container spacing={2}>
                   <Grid item xs={6}>
@@ -367,7 +367,7 @@ const JobSeeker = () => {
                     
                   </Grid>
 
-                  <Grid item md={10}>
+                  <Grid item md={10} className={classes['demobg','newclass']}>
                     <Box className="marginClass">Home</Box>
                     <Box className="marginClass">Jobs</Box>
                     <Box className="marginClass">Companies</Box>
@@ -380,7 +380,7 @@ const JobSeeker = () => {
           {/*============ COLUMN 2 ==============*/}
           <Grid item md={isSmallScreen ? 12 : 6}>
             <Box>
-              <div className="block1CLM2"></div>
+              <div className={classes['block1CLM2','']}></div>
             </Box>
 
             <Grid container spacing={2}>
