@@ -14,13 +14,13 @@
     background-attachment: flex; 
   }
   
-  /* Add media queries for different screen sizes */
+  /* Add media queries for different screen sizes
   @media screen and (max-width: 960px) {
     .home-container {
       background-size: auto; /* Adjust the background size automatically */
-      background-attachment: scroll; /* Allow background scrolling */
-    }
-  }
+      /* /background-attachment: scroll; Allow background scrolling */
+    /* }
+  }  */
   
   *{
     margin: 0;
@@ -31,7 +31,7 @@
   .top_companies{
     font: Poppins;
     margin: 10px;
-    color: #7797FE;
+    /* color: #7797FE; */
     text-align: center;
   }
   
@@ -40,7 +40,7 @@
     margin: 10px;
     font-weight: 100;
     font-style: italic;
-    color: #7797FE;
+    /* color: #7797FE; */
     text-align: center;
   }
   
@@ -79,8 +79,8 @@
   .arrow {
     font-size: 1.6rem;
     cursor: pointer;
-    color: white;
-    background-color: #7797FE;
+    /* color: white;
+    background-color: #7797FE; */
     align-items: center;
     display: flex;
     border-radius: 50%;
@@ -95,24 +95,28 @@
   
   
   /* Media query for small screens */
-  @media (max-width: 850px) {
+   @media (max-width: 850px) {
     .cards-container {
     flex-wrap: wrap;
     justify-content: center;
-    }
+    } 
     
     .card {
     flex: 0 0 calc(33.33% - 20px);
     margin: 10px;
     }
-    }
+    } 
     
     
-    @media (max-width: 480px) {
+     @media (max-width: 480px) {
+      .cards-container {
+        flex-wrap: wrap;
+        justify-content: center;
+        }
     .card {
     flex: 0 0 calc(50% - 20px);
     }
-    }
+    } 
     
     /* Responsive styles for arrows */
     @media (max-width: 850px) {
@@ -131,40 +135,40 @@
   
   
   /*========== CHIPS CSS ==========*/
-  
+/*   
   .container {
     width: 100%;
     display: flex;
     justify-content: center;
 
-  }
+  } */
   
-  .sub-container{
+  /* .sub-container{
     flex-wrap: wrap;
     margin: 5px;
-    padding: 8px;
-    color:#7797FE;
-  }
+    padding: 8px; */
+    /* color:white; */
+  /* } */
   
-  .container .MuiChip-label {
+  /* .container .MuiChip-label {
     font: Poppins;
     font-size: 18px; 
     font-weight: 100;
-  }
+  } */
   
-  .container .MuiChip-outlined {
+  /* .container .MuiChip-outlined {
     background-color:#7797FE;
     color: white;
     padding: 20px;
     margin:5px ;
-  }
+  } */
   
-  .container .MuiChip-outlined:hover{
-    color: #7797FE;
+  /* .container .MuiChip-outlined:hover{
+    color:white;
     background-color: white;
     border-color: #7797FE;
     cursor: pointer;
-  }
+  } */
   
   
   /*========== BLOCKS CSS ==========*/
@@ -194,7 +198,7 @@
   }
   
   .centered-content {
-    color: #7797FE;
+    /* color: #7797FE; */
     font: Poppins;
     font-weight: 400;
     display: flex;
@@ -203,7 +207,7 @@
   }
   
   .centered-content-sub{
-    color:black;
+    /* color:black; */
     font-weight:400;
   }
   

@@ -23,6 +23,7 @@ import Google from "../../../../../assets/img/Google.png";
 import Facebook from "../../../../../assets/img/Facebook.png";
 import Linkedin from "../../../../../assets/img/Linkedin.png";
 import Colors from "../../../../../utils/colors.js";
+// import {  NavLink } from "react-router-dom";
 
 import Axios from "../../../../../utils/Axios";
 // import { useFormik } from "formik/dist";
@@ -30,8 +31,10 @@ import Axios from "../../../../../utils/Axios";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 // import { Link } from "react-router-dom";
 import colors from "../../../../../utils/colors";
+import { NavLink } from "react-router-dom";
 
-const Login = () => {
+
+const Login = (setIsLoggedIn) => {
   const [checked, setChecked] = React.useState(false);
   const [showPassword, setShowPassword] = React.useState(false);
 
@@ -76,6 +79,9 @@ const [loading, setLoading] = useState(false);
     fetchGetAllActive();
   }, []);
 
+
+
+  
   return (
     <Box sx={{ overflow: "hidden" }}>
       <img
@@ -291,8 +297,15 @@ const [loading, setLoading] = useState(false);
                     },
                     margin: "0 auto", // Center the button horizontally
                   }}
-                >
+                  // onClick={() => setIsLoggedIn(true)}
+                  // onClick={setIsLoggedIn(true)}
+                  >
+                  <NavLink to="/">
+
                   Login
+                  </NavLink>
+
+                  
                 </Button>
               </Grid>
 

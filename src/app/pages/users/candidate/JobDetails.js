@@ -1,10 +1,8 @@
+
 import React, { useEffect, useState } from "react";
 import {
   AppBar,
   Button,
-  Tab,
-  Tabs,
-  Toolbar,
   Typography,
   useMediaQuery,
   useTheme,
@@ -13,14 +11,15 @@ import {
   Grid,
   Switch,
   TextField,
-  Container,
 } from "@mui/material";
 import { LocationOn, WorkOutline, Search } from "@mui/icons-material";
 import ArrowDropDown from "@mui/icons-material/KeyboardArrowDown";
 import DrawerComp from "../../../partials/Drawer";
 import Footer from "../../../partials/Footer";
-import "./JobDetails.css";
-import Axios from '../../../utils/Axios';
+import Navbar from "../../../partials/Navbar";
+// import classes from "./JobDetails.module.css";
+// import Axios from '../../../utils/Axios';
+// import Navbar from "../../../partials/Navbar";
 
 const searchBarStyles = {
   display: "flex",
@@ -86,13 +85,14 @@ const layoutStylesResponsive = {
 
 const smallLayoutStyles = {
   width: "auto",
-  height: "34px",
+  height: "2.6rem",
   borderRadius: "31px",
+  fontSize: "14px",
   border: "1px solid",
   display: "flex",
   alignItems: "center",
-  justifyContent: "space-evenly",
-  padding: "0 12px",
+  justifyContent: "space-around",
+  padding: "10px",
 };
 
 const smallLayoutStylesResponsive = {
@@ -121,8 +121,8 @@ const layoutStyles2 = {
 const JobDetails = () => {
   const [value, setValue] = useState();
   const theme = useTheme();
-  const isMatch = useMediaQuery(theme.breakpoints.down("md"));
-  const isSmallScreen = useMediaQuery("(max-width: 960px)");
+  // const isMatch = useMediaQuery(theme.breakpoints.down("md"));
+  const isSmallScreen = useMediaQuery("(max-width: 1080px)");
 
   // const [loading, setLoading] = useState(false);
   //   const [data, setData] = useState([]);
@@ -145,72 +145,7 @@ const JobDetails = () => {
 
   return (
     <>
-      <AppBar
-        sx={{
-          background: "#6973FE",
-          boxShadow: "none",
-          position: "static",
-          height: "70px",
-        }}
-      >
-        <Toolbar>
-          <DrawerComp sx={{ marginRight: "auto" }} />
-          <Typography
-            sx={{
-              font: "Readex Pro",
-              fontWeight: "400",
-              fontSize: "2rem",
-              marginRight: "auto",
-            }}
-          >
-            Smart Job
-          </Typography>
-          {isMatch ? (
-            <></>
-          ) : (
-            <>
-              <Tabs
-                sx={{
-                  font: "Poppins",
-                  fontWeight: "400",
-                  marginRight: "auto",
-                }}
-                textColor="white"
-                value={value}
-                onChange={(e, value) => setValue(value)}
-              >
-                <Tab label="Jobs" />
-                <Tab label="Companies" />
-                <Tab label="Services" />
-                <Tab label="User Profile" />
-              </Tabs>
-              <Button
-                sx={{
-                  marginRight: "auto",
-                  borderRadius: "20px",
-                  color: "white",
-                  borderColor: "white",
-                }}
-                variant="outlined"
-              >
-                Register
-              </Button>
-              <Button
-                sx={{
-                  marginRight: "auto",
-                  borderRadius: "20px",
-                  color: "white",
-                  borderColor: "white",
-                }}
-                variant="outlined"
-              >
-                Login
-              </Button>
-            </>
-          )}
-        </Toolbar>
-      </AppBar>
-
+      {/* <Navbar/> */}
       {/* Search Bar */}
       <Box
         component="form" // Form element to handle form submission
@@ -255,34 +190,13 @@ const JobDetails = () => {
             />
           </Box>
         </Grid>
-        {!isSmallScreen && (
-          <Divider orientation="vertical" sx={dividerStyles} />
-        )}
-        {/* Experience Input */}
-        <Grid item>
-          <Box sx={iconContainerStyles}>
-            <WorkOutline />
-            <TextField
-              label="Experience"
-              variant="outlined"
-              size="small"
-              fullWidth={!isSmallScreen}
-              sx={{
-                "& fieldset": { border: "none" },
-              }}
-            />
-          </Box>
-        </Grid>
-        {!isSmallScreen && (
-          <Divider orientation="vertical" sx={dividerStyles} />
-        )}
+
         {/* Submit Button */}
         <Button type="submit" variant="contained" sx={buttonStyles}>
           Search
         </Button>
       </Box>
 
-      {/* Layout */}
       <Box
         sx={{
           ...layoutStyles,
@@ -291,7 +205,14 @@ const JobDetails = () => {
         }}
       >
         <Box
-          sx={{ display: "flex", alignItems: "center", marginRight: "10px" }}
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            marginRight: isSmallScreen ? "0" : "10px",
+            marginBottom: isSmallScreen ? "10px" : "0",
+            width: isSmallScreen ? "100%" : "auto",
+            flex: "1", 
+          }}
         >
           <Typography
             variant="h6"
@@ -303,130 +224,134 @@ const JobDetails = () => {
           <ArrowDropDown style={arrowDownStyles} />
         </Box>
         <Divider
-          orientation="vertical"
-          sx={{ height: "34px", margin: "0 16px" }}
+          orientation={isSmallScreen ? "horizontal" : "vertical"}
+          sx={{
+            width: isSmallScreen ? "100%" : "1px",
+            height: isSmallScreen ? "1px" : "70px",
+            marginBottom: isSmallScreen ? "10px" : "0",
+            marginLeft: isSmallScreen ? "0" : "16px",
+          }}
         />
-        <Box
+        <Grid
+          container
+          spacing={1}
           sx={{
-            ...smallLayoutStyles,
-            ...(isSmallScreen && smallLayoutStylesResponsive),
-            flexDirection: isSmallScreen ? "column" : "row",
-            marginLeft: "6px",
-            fontSize: "13px",
+            flexWrap: isSmallScreen ? "wrap" : "nowrap",
           }}
         >
-          <span style={{ color: "black" }}>Quick Apply</span>
-        </Box>
-        <Box
-          sx={{
-            ...smallLayoutStyles,
-            ...(isSmallScreen && smallLayoutStylesResponsive),
-            flexDirection: isSmallScreen ? "column" : "row",
-            marginLeft: "6px",
-            fontSize: "13px",
-          }}
-        >
-          <span style={{ color: "black" }}>Location</span>
-          <ArrowDropDown style={arrowDownStyles} />{" "}
-        </Box>{" "}
-        <Box
-          sx={{
-            ...smallLayoutStyles,
-            ...(isSmallScreen && smallLayoutStylesResponsive),
-            flexDirection: isSmallScreen ? "column" : "row",
-            marginLeft: "6px",
-            fontSize: "13px",
-          }}
-        >
-          <span style={{ color: "black" }}>Experience</span>
-          <ArrowDropDown style={arrowDownStyles} />{" "}
-        </Box>{" "}
-        <Box
-          sx={{
-            ...smallLayoutStyles,
-            ...(isSmallScreen && smallLayoutStylesResponsive),
-            flexDirection: isSmallScreen ? "column" : "row",
-            marginLeft: "6px",
-            fontSize: "13px",
-          }}
-        >
-          <span style={{ color: "black" }}>Salary</span>
-          <ArrowDropDown style={arrowDownStyles} />{" "}
-        </Box>{" "}
-        <Box
-          sx={{
-            ...smallLayoutStyles,
-            ...(isSmallScreen && smallLayoutStylesResponsive),
-            flexDirection: isSmallScreen ? "column" : "row",
-            marginLeft: "6px",
-            fontSize: "13px",
-          }}
-        >
-          <span style={{ color: "black" }}>Function</span>
-          <ArrowDropDown style={arrowDownStyles} />{" "}
-        </Box>{" "}
-        <Box
-          sx={{
-            ...smallLayoutStyles,
-            ...(isSmallScreen && smallLayoutStylesResponsive),
-            flexDirection: isSmallScreen ? "column" : "row",
-            marginLeft: "6px",
-            fontSize: "13px",
-          }}
-        >
-          <span style={{ color: "black" }}>Role</span>
-          <ArrowDropDown style={arrowDownStyles} />{" "}
-        </Box>{" "}
-        <Box
-          sx={{
-            ...smallLayoutStyles,
-            ...(isSmallScreen && smallLayoutStylesResponsive),
-            flexDirection: isSmallScreen ? "column" : "row",
-            marginLeft: "6px",
-            fontSize: "13px",
-          }}
-        >
-          <span style={{ color: "black" }}>Job Type</span>
-          <ArrowDropDown style={arrowDownStyles} />{" "}
-        </Box>{" "}
-        <Box
-          sx={{
-            ...smallLayoutStyles,
-            ...(isSmallScreen && smallLayoutStylesResponsive),
-            flexDirection: isSmallScreen ? "column" : "row",
-            marginLeft: "6px",
-            fontSize: "13px",
-          }}
-        >
-          <span style={{ color: "black" }}>Job Freshness</span>
-          <ArrowDropDown style={arrowDownStyles} />{" "}
-        </Box>{" "}
-        <Box
-          sx={{
-            ...smallLayoutStyles,
-            ...(isSmallScreen && smallLayoutStylesResponsive),
-            flexDirection: isSmallScreen ? "column" : "row",
-            marginLeft: "6px",
-            fontSize: "13px",
-          }}
-        >
-          <span style={{ color: "black" }}>All Filters</span>
-          <ArrowDropDown style={arrowDownStyles} />{" "}
-        </Box>{" "}
-        <Box
-          sx={{
-            ...smallLayoutStyles,
-            ...(isSmallScreen && smallLayoutStylesResponsive),
-            flexDirection: isSmallScreen ? "column" : "row",
-            marginLeft: "6px",
-            fontSize: "13px",
-          }}
-        >
-          <span style={{ color: "black" }}>Reset All</span>{" "}
-        </Box>
+          <Grid item xs={6} sm={4} md={2}>
+            <Box
+              sx={{
+                ...smallLayoutStyles,
+                ...(isSmallScreen && smallLayoutStylesResponsive),
+              }}
+            >
+              <span style={{ color: "black" }}>Quick Apply</span>
+            </Box>
+          </Grid>
+          <Grid item xs={6} sm={4} md={2}>
+            <Box
+              sx={{
+                ...smallLayoutStyles,
+                ...(isSmallScreen && smallLayoutStylesResponsive),
+              }}
+            >
+              <span style={{ color: "black" }}>Location</span>
+              <ArrowDropDown style={arrowDownStyles} />
+            </Box>
+          </Grid>
+          <Grid item xs={6} sm={4} md={2}>
+            <Box
+              sx={{
+                ...smallLayoutStyles,
+                ...(isSmallScreen && smallLayoutStylesResponsive),
+              }}
+            >
+              <span style={{ color: "black" }}>Experience</span>
+              <ArrowDropDown style={arrowDownStyles} />
+            </Box>
+          </Grid>
+          <Grid item xs={6} sm={4} md={2}>
+            <Box
+              sx={{
+                ...smallLayoutStyles,
+                ...(isSmallScreen && smallLayoutStylesResponsive),
+              }}
+            >
+              <span style={{ color: "black" }}>Salary</span>
+              <ArrowDropDown style={arrowDownStyles} />
+            </Box>
+          </Grid>
+          <Grid item xs={6} sm={4} md={2}>
+            <Box
+              sx={{
+                ...smallLayoutStyles,
+                ...(isSmallScreen && smallLayoutStylesResponsive),
+              }}
+            >
+              <span style={{ color: "black" }}>Function</span>
+              <ArrowDropDown style={arrowDownStyles} />
+            </Box>
+          </Grid>
+          <Grid item xs={6} sm={4} md={2}>
+            <Box
+              sx={{
+                ...smallLayoutStyles,
+                ...(isSmallScreen && smallLayoutStylesResponsive),
+              }}
+            >
+              <span style={{ color: "black" }}>Role</span>
+              <ArrowDropDown style={arrowDownStyles} />
+            </Box>
+          </Grid>
+          <Grid item xs={6} sm={4} md={2}>
+            <Box
+              sx={{
+                ...smallLayoutStyles,
+                ...(isSmallScreen && smallLayoutStylesResponsive),
+              }}
+            >
+              <span style={{ color: "black" }}>Job Type</span>
+              <ArrowDropDown style={arrowDownStyles} />
+            </Box>
+          </Grid>
+          <Grid item xs={6} sm={4} md={2}>
+            <Box
+              sx={{
+                ...smallLayoutStyles,
+                ...(isSmallScreen && smallLayoutStylesResponsive),
+              }}
+            >
+              <span style={{ color: "black" }}>Job Freshness</span>
+              <ArrowDropDown style={arrowDownStyles} />
+            </Box>
+          </Grid>
+          <Grid item xs={6} sm={4} md={2}>
+            <Box
+              sx={{
+                ...smallLayoutStyles,
+                ...(isSmallScreen && smallLayoutStylesResponsive),
+              }}
+            >
+              <span style={{ color: "black" }}>All Filters</span>
+              <ArrowDropDown style={arrowDownStyles} />
+            </Box>
+          </Grid>
+          <Grid item xs={6} sm={4} md={2}>
+            <Box
+              sx={{
+                ...smallLayoutStyles,
+                ...(isSmallScreen && smallLayoutStylesResponsive),
+              }}
+            >
+              <span style={{ color: "black" }}>Reset All</span>
+            </Box>
+          </Grid>
+        </Grid>
       </Box>
 
-      <Grid container spacing={1}>
+      {/* xs={isSmallScreen ? 12 : 6} */}
+      <Grid container spacing={2}>
         <Grid item xs={isSmallScreen ? 12 : 6}>
           {/* Content for the left side */}
           <Box sx={layoutStyles2}>
@@ -563,7 +488,7 @@ const JobDetails = () => {
           </Box>
         </Grid>
 
-        <Grid item xs={12} md={6}>
+        <Grid item xs={isSmallScreen ? 12 : 6}>
           {/* Content for the right side */}
           <Box sx={layoutStyles2} style={{ width: "auto" }}>
             <Typography style={{ color: "black", marginRight: "8px" }}>
@@ -579,27 +504,41 @@ const JobDetails = () => {
             </Button>
           </Box>
 
-          {/* Box 1 */}
           <Box
-            style={{
-              width: "auto",
-              height: "69px",
-              border: "1px solid #7797FE",
-              borderRadius: "54px",
-              margin: "30px",
-              display: "flex",
-              justifyContent: "space-around",
-              alignItems: "center",
-              paddingInline: "10px",
-              boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.3)",
+            sx={{
+              ml: { xs: "-10%", sm: "0px", md: "0px", xl: "0px", lg: "0px" },
             }}
           >
-            <Typography>Highlights</Typography>
-            <Typography>Job Description</Typography>
-            <Typography>More Info</Typography>
-            <Typography>Recuiter Information</Typography>
+            <Box
+              style={{
+                width: "90%",
+                maxWidth: "600px",
+                height: "auto",
+                border: "1px solid #7797FE",
+                borderRadius: "54px",
+                margin: "30px",
+                alignItems: "center",
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "center",
+                padding: "10px",
+                boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.3)",
+                gap: "10px",
+                ml: {
+                  xs: "-50%",
+                  sm: "none",
+                  md: "none",
+                  xl: "none",
+                  lg: "none",
+                },
+              }}
+            >
+              <Typography variant="p">Highlights</Typography>&nbsp;
+              <Typography variant="p">Job Description</Typography>
+              <Typography variant="p"> More Info</Typography>
+              <Typography variant="p"> Recruiter Information</Typography>
+            </Box>
           </Box>
-
           <Box
             style={{
               width: "auto",
@@ -619,123 +558,141 @@ const JobDetails = () => {
             Gurgaon / Gurugram, India
             <br /> 0 - 0 Years <br /> 13 days ago <br /> 2 Applied
           </Box>
+
           <Box
             style={{
-              width: "auto",
-              height: "61px",
+              width: "90%",
+              height: "auto",
               backgroundColor: "#CCFFCC",
               borderRadius: "17px",
               margin: "30px",
               display: "flex",
-              justifyContent: "space-between",
+              flexDirection: "column",
               alignItems: "center",
-              paddingInline: "10px",
+              padding: "10px",
               boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.3)",
               fontSize: "14px",
               gap: "5px",
               fontWeight: "600",
             }}
           >
-            <p>
+            <p style={{ textAlign: "center" }}>
               Get notified for jobs based on your search when they are posted
             </p>
-            <p style={{ color: "#7797FE" }}>Send Similar Jobs</p>
-            <Switch />
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <p style={{ color: "#7797FE", marginRight: "10px" }}>
+                Send Similar Jobs
+              </p>
+              <Switch />
+            </div>
           </Box>
-          <p
-            style={{
-              fontSize: "18px",
-              fontWeight: "700",
-              marginTop: "20px",
-              marginLeft: "40px",
-              marginBottom: "8px",
-            }}
-          >
-            Job Description:
-          </p>
-          <p
-            style={{
-              fontSize: "14px",
-              fontWeight: "600",
-              marginLeft: "40px",
-              marginBottom: "4px",
-            }}
-          >
-            - Able to work in good coordination with production managers and
-            engineers.
-          </p>
-          <p
-            style={{
-              fontSize: "14px",
-              fontWeight: "600",
-              marginLeft: "40px",
-              marginBottom: "4px",
-            }}
-          >
-            - Capable of generating new ideas.
-          </p>
-          <p
-            style={{
-              fontSize: "14px",
-              fontWeight: "600",
-              marginLeft: "40px",
-              marginBottom: "4px",
-            }}
-          >
-            - Should have hands-on experience with Photoshop and Illustrator.
-          </p>
-          <p
-            style={{
-              fontSize: "14px",
-              fontWeight: "600",
-              marginLeft: "40px",
-              marginBottom: "4px",
-            }}
-          >
-            - Should have experience with logo design, corporate brand identity
-            design, web UI
-          </p>
-          <p
-            style={{
-              fontSize: "14px",
-              fontWeight: "600",
-              marginLeft: "40px",
-              marginBottom: "4px",
-            }}
-          >
-            - Identify and troubleshoot UX problems.
-          </p>
-          <p
-            style={{
-              fontSize: "14px",
-              fontWeight: "600",
-              marginLeft: "40px",
-              marginBottom: "4px",
-            }}
-          >
-            - Discuss the idea with the internal team.
-          </p>
-          <p
-            style={{
-              fontSize: "14px",
-              fontWeight: "600",
-              marginLeft: "40px",
-              marginBottom: "4px",
-            }}
-          >
-            - Knowledge about style standards on fonts, colors, and images.
-          </p>
-          <p
-            style={{
-              fontSize: "14px",
-              fontWeight: "600",
-              marginLeft: "40px",
-              marginBottom: "4px",
-            }}
-          >
-            - Develop UI mockups and prototypes.
-          </p>
-
+          <Box>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={12}>
+                <p
+                  style={{
+                    fontSize: "18px",
+                    fontWeight: "700",
+                    marginTop: "20px",
+                    marginLeft: "40px",
+                    marginBottom: "8px",
+                  }}
+                >
+                  Job Description:
+                </p>
+                <p
+                  style={{
+                    fontSize: "14px",
+                    fontWeight: "600",
+                    marginLeft: "40px",
+                    marginBottom: "4px",
+                  }}
+                >
+                  - Able to work in good coordination with production managers
+                  and engineers.
+                </p>
+                <p
+                  style={{
+                    fontSize: "14px",
+                    fontWeight: "600",
+                    marginLeft: "40px",
+                    marginBottom: "4px",
+                  }}
+                >
+                  - Capable of generating new ideas.
+                </p>
+                <p
+                  style={{
+                    fontSize: "14px",
+                    fontWeight: "600",
+                    marginLeft: "40px",
+                    marginBottom: "4px",
+                  }}
+                >
+                  - Should have hands-on experience with Photoshop and
+                  Illustrator.
+                </p>
+                <p
+                  style={{
+                    fontSize: "14px",
+                    fontWeight: "600",
+                    marginLeft: "40px",
+                    marginBottom: "4px",
+                  }}
+                >
+                  - Should have experience with logo design, corporate brand
+                  identity design, web UI
+                </p>
+                <p
+                  style={{
+                    fontSize: "14px",
+                    fontWeight: "600",
+                    marginLeft: "40px",
+                    marginBottom: "4px",
+                  }}
+                >
+                  - Identify and troubleshoot UX problems.
+                </p>
+                <p
+                  style={{
+                    fontSize: "14px",
+                    fontWeight: "600",
+                    marginLeft: "40px",
+                    marginBottom: "4px",
+                  }}
+                >
+                  - Discuss the idea with the internal team.
+                </p>
+                <p
+                  style={{
+                    fontSize: "14px",
+                    fontWeight: "600",
+                    marginLeft: "40px",
+                    marginBottom: "4px",
+                  }}
+                >
+                  - Knowledge about style standards on fonts, colors, and
+                  images.
+                </p>
+                <p
+                  style={{
+                    fontSize: "14px",
+                    fontWeight: "600",
+                    marginLeft: "40px",
+                    marginBottom: "4px",
+                  }}
+                >
+                  - Develop UI mockups and prototypes.
+                </p>
+              </Grid>
+            </Grid>
+          </Box>
           <p
             style={{
               fontSize: "18px",

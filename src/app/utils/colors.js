@@ -16,7 +16,6 @@ const Colors = createTheme({
       card: ' #7797FE',
       text:'#FFFFFF',
       background1: '#7797FE',
-      
     },
     color:{
       maincolor: '#000000',

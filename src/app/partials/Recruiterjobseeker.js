@@ -1,21 +1,21 @@
 import { Box, Button, Typography } from "@mui/material";
 import React from "react";
-import vector2 from "../../../assets/img/Vector2.png";
-import vector1 from "../../../assets/img/Vector1.png";
-import recruiter from "../../../assets/img/recruiter/recruiter.jpg";
-import jobseeker from "../../../assets/img/users/jobseeker.jpg";
-
+import vector2 from "../assets/img/Vector2.png";
+import vector1 from "../assets/img/Vector1.png";
+import recruiter from "../assets/img/recruiter/recruiter.jpg";
+import jobseeker from "../assets/img/users/jobseeker.jpg";
+import {Link} from "react-router-dom"
 const RecruiterJobSeeker = () => {
   return (
     <>
-      <Box>
+    
         <Box>
           <img src={vector1} alt="" style={{ height: "100%", width: "100%" }} />
         </Box>
         <Box
           sx={{
             textAlign: "center",
-            gap: "2%",
+            gap: "5%",
             display: { xs: "block", sm: "flex" },
             margin: "10px",
             padding: "10px",
@@ -29,7 +29,7 @@ const RecruiterJobSeeker = () => {
             }}
           >
             <Typography variant="h4" >
-              <strong> I AM A Jobseeker </strong> <br />
+              <strong> I AM A Jobseeker !</strong> <br />
             </Typography>
             <Typography sx={{ fontSize: "18px" }}>
               {" "}
@@ -46,10 +46,11 @@ const RecruiterJobSeeker = () => {
               <Button
                 size="large"
                 sx={{
-                  marginRight:"5px",
+                  marginRight:"20px",
                   borderRadius: "20px",
                   background: "#6973FE",
                   color: "#FFF",
+                  textTransform:"capitalize",
                   "&:hover": {
                     backgroundColor: "white",
                     color:"#6973FE",
@@ -57,7 +58,10 @@ const RecruiterJobSeeker = () => {
                   },
                 }}
               >
-                Browser job !
+                <Link to="/userregister">
+
+                Resigter as a Candidate
+                </Link>
               </Button>
 
               <Typography
@@ -80,15 +84,16 @@ const RecruiterJobSeeker = () => {
               width: { xs: "100%", sm: "48%", border: "1px solid #6973FE" },
               padding:"20px",
               marginBottom:"10px",
+              
             }}
           >
             <Typography variant="h4" >
-              <strong> I AM A Jobseeker </strong> <br />
+              <strong> I AM A Recruiter ! </strong> <br />
             </Typography>
             <Typography sx={{ fontSize: "18px" }}>
               {" "}
-              Find your dream job and get hired by India's top <br />{" "}
-              companies...
+              A new advanced approach to hiring employees for<br />{" "}
+              your business...
             </Typography>{" "}
             <div
               style={{
@@ -100,10 +105,11 @@ const RecruiterJobSeeker = () => {
               <Button
                 size="large"
                 sx={{
-                  marginRight:"10px",
+                  marginRight:"20px",
                   borderRadius: "20px",
                   background: "#6973FE",
                   color: "#FFF",
+                  textTransform:"capitalize",
                   "&:hover": {
                     backgroundColor: "white",
                     color:"#6973FE",
@@ -111,7 +117,10 @@ const RecruiterJobSeeker = () => {
                   },
                 }}
               >
-                Post job !
+                <Link to="/recruiterregister">
+
+                Resigter as a Recruiter
+                </Link>
               </Button>
               <br />
               <Typography
@@ -131,7 +140,7 @@ const RecruiterJobSeeker = () => {
         <Box>
           <img src={vector2} alt="" style={{ height: "100%", width: "100%" }} />
         </Box>
-      </Box>
+      
     </>
   );
 };

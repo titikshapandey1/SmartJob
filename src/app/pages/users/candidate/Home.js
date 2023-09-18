@@ -11,6 +11,8 @@ import {
   Box,
   Grid,
   TextField,
+  Paper,
+  Container,
   Chip,
 } from "@mui/material";
 import { LocationOn, WorkOutline, Search } from "@mui/icons-material";
@@ -20,24 +22,56 @@ import BusinessCenterOutlinedIcon from "@mui/icons-material/BusinessCenterOutlin
 import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
 
 /*========== CSS FILE ============ */
-import "./Home.css";
+import classes from "./Home.module.css";
 import Footer from "../../../partials/Footer";
-import Navbar from "../../../partials/Navbar";
+ import Navbar from "../../../partials/Navbar";
+
 /*========== IMAGES ============ */
+import homeImg from "../../../assets/img/users/Home.jpg"
 import img1 from "../../../assets/img/users/Mahindra.jpg";
 import img5 from "../../../assets/img/users/Accenture.jpg";
 import img4 from "../../../assets/img/users/Capgemini.jpg";
 import img2 from "../../../assets/img/users/Cognizant.jpg";
 import img6 from "../../../assets/img/users/Hewlett_Packard.jpg";
 import img3 from "../../../assets/img/users/Virtual_employe.jpg";
+// import Navbar from "../../../partials/Navbar";
+// import Axios from "../../../utils/Axios";
 
-import Axios from "../../../utils/Axios";
+import Colors from "../../../utils/colors";
+import {Link} from "react-router-dom"
+
+const styles = {
+  chipContainer: {
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  chipWrapper: {
+    flexWrap: 'wrap',
+    margin: '5px',
+    padding: '8px',
+    display: 'flex',
+    gap: '8px', // Add gap between chips
+  },
+  chip: {
+    fontSize:"20px",
+    padding:"10px",
+    backgroundColor: Colors.palette.background.card,
+    color:Colors.palette.background.text, 
+    '&:hover': {
+      borderColor: 'rgba(0, 0, 0, 0.23)', 
+      backgroundColor: 'white', 
+      color:Colors.palette.background.text,
+    },
+  },
+};
+//
 
 const searchBarStyles = {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  color: "white",
+  color: Colors.palette.background.text,
   backgroundColor: "transparent",
   borderRadius: "25px",
   padding: "8px 16px",
@@ -58,14 +92,14 @@ const iconContainerStyles = {
 };
 
 const labelStyles = {
-  color: "white", 
+  color: Colors.palette.background.text, 
 };
 
 const buttonStyles = {
   width: "10%",
   height: "45px",
   borderRadius: "30px",
-  backgroundColor: "#CCFFCC",
+  backgroundColor:Colors.palette.color.textColor,
   fontSize: "20px",
   boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.3)",
   textTransform: "capitalize",
@@ -73,38 +107,37 @@ const buttonStyles = {
   marginRight: "10px",
   marginLeft: "10px",
   "&:hover": {
-    color: "#7797FE",
-    backgroundColor: "white",
+    color: Colors.palette.background.card,
+    backgroundColor: Colors.palette.background.text,
   },
 };
 
-const Header = () => {
+const mainStyles = {
+  backgroundImage: `url(${homeImg})`,
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat",
+}
+
+const Home = (isLoggedIn) => {
   const [value, setValue] = useState();
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
   const isSmallScreen = useMediaQuery("(max-width: 960px)");
 
-  // const [loading, setLoading] = useState(false);
-  // const [data, setData] = useState([]);
+  
 
-  // const fetchHome = async () => {
-  //   try {
-  //     const response = await Axios.get("/");
-  //     setData(response.data.data);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   fetchHome();
-  // }, []);
 
   return (
     <>
-      <div className="home-container">
+  
+
+    <Box>
+
+   
+      <div className={classes['home-container']} style={mainStyles}>
         
-        <Navbar/>
+      
         <Box
           sx={{
             textAlign: "left",
@@ -120,7 +153,7 @@ const Header = () => {
               marginLeft: "20px",
               fontSize: isSmallScreen ? "28px" : "40px",
               flexGrow: 1,
-              color: "white",
+              color: "black",
               whiteSpace: "break-spaces",
               maxWidth: isSmallScreen ? "90%" : "30%",
             }}
@@ -135,7 +168,7 @@ const Header = () => {
               fontSize: isSmallScreen ? "14px" : "18px",
               flexGrow: 1,
               padding: isSmallScreen ? "10px" : "20px",
-              color: "white",
+              color: "black",
               maxWidth: "50%",
             }}
           >
@@ -146,7 +179,7 @@ const Header = () => {
           <Button
             variant="outlined"
             sx={{
-              color: "lightgreen",
+              color: Colors.palette.background.text,
               fontSize: "18px",
               borderRadius: "20px",
               borderColor: "lightgreen",
@@ -155,7 +188,10 @@ const Header = () => {
               height: "50px",
             }}
           >
+            <Link to="/recruiterjobseeker">
+
             Register
+            </Link>
           </Button>
         </Box>
 
@@ -237,76 +273,106 @@ const Header = () => {
 
       {/*========== CARDS ============ */}
       <Typography>
-        <h1 className="top_companies">Top Companies</h1>
+        <h1 className={classes['top_companies']} style={{ color: Colors.palette.background.card }}
+>Top Companies</h1>
       </Typography>
 
-      <div className="cards-container">
-        <div className="arrow">
+      <div className={classes['cards-container']}>
+        <div className={classes['arrow']} style={{ color: Colors.palette.background.text ,backgroundColor:Colors.palette.background.card }}>
           <ArrowBackIosSharpIcon />
         </div>
 
-        <div className="card">
+        <div className={classes['card']}>
           <img src={img1} alt="Green Iguana" />
         </div>
 
-        <div className="card">
+        <div className={classes['card']}>
           <img src={img2} alt="Green Iguana" />
         </div>
 
-        <div className="card">
+        <div className={classes['card']}>
           <img src={img3} alt="Green Iguana" />
         </div>
 
-        <div className="card">
+        <div className={classes['card']}>
           <img src={img4} alt="Green Iguana" />
         </div>
 
-        <div className="card">
+        <div className={classes['card']}>
           <img src={img5} alt="Green Iguana" />
         </div>
 
-        <div className="card">
+        <div className={classes['card']}>
           <img src={img6} alt="Green Iguana" />
         </div>
 
-        <div className="arrow">
+        <div className={classes['arrow']}>
           <ArrowForwardIosIcon />
         </div>
       </div>
 
+     
+
       {/*=========== CHIPS ===========*/}
       <Typography>
-        <h2 className="top_searches">Top Searches</h2>
+        <h2 className={classes['top_searches']} style={{color:Colors.palette.background.card,}}>Top Searches</h2>
       </Typography>
-      <div className="container">
-        <div className="sub-container">
-          <Chip label="Java" variant="outlined" />
-          <Chip label="IT" variant="outlined" />
-          <Chip label="HR" variant="outlined" />
-          <Chip label="Work from Home Jobs" variant="outlined" />
-          <Chip label="Freshers" variant="outlined" />
-          <Chip label="Banking" variant="outlined" />
-          <Chip label="Sales" variant="outlined" />
-          <Chip label="Software Engineer" variant="outlined" />
-          <Chip label="Accounting" variant="outlined" />
-          <Chip label="Business Analyst" variant="outlined" />
-          <Chip label="Data Analyst" variant="outlined" />
-          <Chip label="DevOps Engineer" variant="outlined" />
-          <Chip label="Digital Marketing" variant="outlined" />
-        </div>
-      </div>
+    
+      
+
+      <Box sx={styles.chipContainer}>
+      <Box sx={styles.chipWrapper}>
+        <Chip
+          label="Java"
+          variant="outlined"
+         // InputProps={{ sx: { color: 'text.primary' } }}
+          sx={styles.chip}
+        />
+        <Chip label="IT" variant="outlined" sx={styles.chip} />
+        <Chip label="HR" variant="outlined" sx={styles.chip} />
+        <Chip label="Work from Home Jobs" variant="outlined" sx={styles.chip} />
+        <Chip label="Freshers" variant="outlined" sx={styles.chip} />
+        <Chip label="Banking" variant="outlined" sx={styles.chip} />
+        <Chip label="Sales" variant="outlined" sx={styles.chip} />
+        <Chip
+          label="Software Engineer"
+          variant="outlined"
+          sx={styles.chip}
+        />
+        <Chip label="Accounting" variant="outlined" sx={styles.chip} />
+        <Chip
+          label="Business Analyst"
+          variant="outlined"
+          sx={styles.chip}
+        />
+        <Chip label="Data Analyst" variant="outlined" sx={styles.chip} />
+        <Chip
+          label="DevOps Engineer"
+          variant="outlined"
+          sx={styles.chip}
+        />
+        <Chip
+          label="Digital Marketing"
+          variant="outlined"
+          sx={styles.chip}
+        />
+      </Box>
+    </Box>
+    
 
       {/*=========== BLOCKS ===========*/}
 
       {/*====== block 1 ======*/}
-      <div className=" block">
-        <div className="sub-block">
-          <div className="btn-primary">
+
+      <Box sx={{display:{xs:"none",sm:"block"}}}>
+      <div  className={classes['block']}>
+        <div className={classes['sub-block']}>
+          <div className = {classes['btn-primary']}>
             <Button
               variant="outlined"
               sx={{
                 borderRadius: "20px",
-                color: "black",
+                color: Colors.palette.primary.main,
                 borderColor: "#7797FE",
               }}
             >
@@ -314,19 +380,19 @@ const Header = () => {
             </Button>
           </div>
 
-          <Typography className="centered-content">
+          <Typography className={classes['centered-content']} style={{color:Colors.palette.background.card,}}>
             <h1>Full Stack Developer</h1>
-            <h3 className="centered-content-sub">
+            <h3 className={classes['centered-content']} style={{color:Colors.palette.primary.main,}}>
               Lorem Ipsum Private Limited
             </h3>
           </Typography>
-          <p className="text">4 hours Ago</p>
+          <p className={classes['text']}>4 hours Ago</p>
         </div>
 
-        <div className="bottom">
-          <div className="logo">
+        <div className={classes['bottom']}>
+          <div className={classes['logo']}>
             <Typography
-              className="logo-content"
+              className={classes['logo-content']}
               style={{ fontSize: "24px", display: "flex", fontWeight: "100" }}
             >
               <BusinessCenterOutlinedIcon
@@ -347,7 +413,7 @@ const Header = () => {
               sx={{
                 borderRadius: "20px",
                 color: "black",
-                borderColor: "#7797FE",
+                borderColor: Colors.palette.background.card,
                 fontSize: "10px",
                 fontWeight: "600",
                 marginRight: "10px",
@@ -360,7 +426,7 @@ const Header = () => {
               sx={{
                 borderRadius: "20px",
                 color: "black",
-                borderColor: "#7797FE",
+                borderColor:Colors.palette.background.card,
                 fontSize: "10px",
                 fontWeight: "600",
               }}
@@ -371,44 +437,139 @@ const Header = () => {
         </div>
       </div>
 
+</Box>
+
+              {/* Display for xs break point 0 to 599px */}
+              <Box sx={{display:{xs:"block",sm:"none"}}}>
+      <Grid container spacing={5}>
+        <Grid item xs={12}>
+          <div  className={classes['block']}>
+            <div className={classes['sub-block']}>
+              <div className = {classes['btn-primary']}>
+                <Button
+                  variant="outlined"
+                  sx={{
+                    borderRadius: "20px",
+                    color: Colors.palette.primary.main,
+                    borderColor: Colors.palette.background.card,
+
+                  }}
+                >
+                  Recommended
+                </Button>
+              </div>
+
+              <Typography className={classes['centered-content']}  style={{color:Colors.palette.background.card,}}>
+            <h1>Full Stack Developer</h1>
+            <h3 className={classes['centered-content']}  style={{color:Colors.palette.primary.main,}} >
+              Lorem Ipsum Private Limited
+            </h3>
+          </Typography>
+          <p className="text">4 hours Ago</p>
+            </div>
+
+            <div className={classes['bottom']}>
+              <div className={classes['logo']}>
+                <Typography
+                  className={classes['logo-content']}
+                  style={{
+                    fontSize: "18px",
+                    display: "flex",
+                    fontWeight: "100",
+                  }}
+                 // sx={{ marginLeft:{xs:"-70%",sm:"10%"}}}
+                 
+                >
+                  <BusinessCenterOutlinedIcon
+                    fontSize="large"
+                    style={{ marginRight: "8px" }}
+                   // sx={{marginLeft:{xs:"-0%",sm:"10%"}}}
+                  />
+               <b>    0 To 5 Years Experience</b>
+                  <Box sx={{ flex: 1, textAlign: "center" }}>
+                    <PlaceOutlinedIcon fontSize="large"  />
+                  </Box>
+{/* //s                  x={{marginLeft:{xs:"-150%",sm:"10%"}}} */}
+                 <b> Noida</b>
+                </Typography>
+              </div>
+
+              <Typography>
+                <Button
+                  variant="outlined"
+                  sx={{
+                    borderRadius: "20px",
+                    color: "black",
+                    borderColor:Colors.palette.background.card,
+                    fontSize: "10px",
+                    fontWeight: "600",
+                    marginRight: "10px",
+                  }}
+                >
+                  Apply Now
+                </Button> 
+                <Button
+                  variant="outlined"
+                  sx={{
+                    borderRadius: "20px",
+                    color: "black",
+                    borderColor:Colors.palette.background.card,
+                    fontSize: "10px",
+                    fontWeight: "600",
+                  }}
+                >
+                  Not Interested
+                </Button>
+              </Typography>
+            </div>
+          </div>
+        </Grid>
+      </Grid>
+    </Box>
+
+
       {/*====== block 2 ======*/}
-      <div className=" block">
-        <div className="sub-block">
-          <div className="btn-primary">
+      {/* Display for Sm break point */}
+      <Box sx={{display:{xs:"none",sm:"block"}}}>
+      <div className={classes['block']}>
+        <div className={classes['sub-block']}>
+          <div className = {classes['btn-primary']}>
             <Button
               variant="outlined"
               sx={{
                 borderRadius: "20px",
                 color: "black",
-                borderColor: "#7797FE",
+                borderColor:Colors.palette.background.card,
               }}
             >
               Recommended
             </Button>
           </div>
 
-          <Typography className="centered-content">
+          <Typography className={classes['centered-content']} style={{color:Colors.palette.background.card,}}>
             <h1>Web Designer</h1>
-            <h3 className="centered-content-sub">
+            <h3 className={classes['centered-content-sub']}  style={{color:Colors.palette.primary.main,}}>
               Lorem Ipsum Private Limited
             </h3>
           </Typography>
-          <p className="text">9 hours Ago</p>
+          <p className={classes['text']}>9 hours Ago</p>
         </div>
 
-        <div className="bottom">
-          <div className="logo">
+        <div className={classes['bottom']}>
+          <div className={classes['logo']}>
             <Typography
-              className="logo-content"
+              className={classes['logo-content']}
               style={{ fontSize: "24px", display: "flex", fontWeight: "100" }}
+         
             >
               <BusinessCenterOutlinedIcon
                 fontSize="large"
                 style={{ marginRight: "8px" }}
+                
               />
               1 To 5 Years Experience
               <Box sx={{ flex: 1, textAlign: "center" }}>
-                <PlaceOutlinedIcon fontSize="large" />
+                <PlaceOutlinedIcon fontSize="large"  />
               </Box>
               Noida
             </Typography>
@@ -420,7 +581,7 @@ const Header = () => {
               sx={{
                 borderRadius: "20px",
                 color: "black",
-                borderColor: "#7797FE",
+                borderColor:Colors.palette.background.card,
                 fontSize: "10px",
                 fontWeight: "600",
                 marginRight: "10px",
@@ -433,7 +594,7 @@ const Header = () => {
               sx={{
                 borderRadius: "20px",
                 color: "black",
-                borderColor: "#7797FE",
+                borderColor: Colors.palette.background.card,
                 fontSize: "10px",
                 fontWeight: "600",
               }}
@@ -443,36 +604,224 @@ const Header = () => {
           </Typography>
         </div>
       </div>
+      </Box>
+
+                {/* Dislay only Xs break point */}
+      <Box sx={{display:{xs:"block",sm:"none"}}}>
+      <Grid container spacing={5}>
+        <Grid item xs={12}>
+          <div  className={classes['block']}>
+            <div className={classes['sub-block']}>
+              <div className = {classes['btn-primary']}>
+                <Button
+                  variant="outlined"
+                  sx={{
+                    borderRadius: "20px",
+                    color: "black",
+                    borderColor: Colors.palette.background.card,
+                  }}
+                >
+                  Recommended
+                </Button>
+              </div>
+
+              <Typography className={classes['centered-content']} style={{color:Colors.palette.background.card,}}
+>
+            <h1>Web Designer</h1>
+            <h3 className={classes['centered-content-sub']} style={{color:Colors.palette.primary.main,}}>
+              Lorem Ipsum Private Limited
+            </h3>
+          </Typography>
+          <p className={classes['text']}>9 hours Ago</p>
+            </div>
+
+            <div className={classes['bottom']}>
+              <div className={classes['logo']}>
+                <Typography
+                  className={classes['logo-content']}
+                  style={{
+                    fontSize: "18px",
+                    display: "flex",
+                    fontWeight: "100",
+                  }}
+                  //sx={{ marginLeft:{xs:"-70%",sm:"10%"}}}
+                 
+                >
+                  <BusinessCenterOutlinedIcon
+                    fontSize="large"
+                    style={{ marginRight: "8px" }}
+                  //  sx={{marginLeft:{xs:"-0%",sm:"10%"}}}
+                  />
+               <b>   1 To 5 Years Experience</b>
+                  <Box sx={{ flex: 1, textAlign: "center" }}>
+                    <PlaceOutlinedIcon fontSize="large"
+                    // sx={{marginLeft:{xs:"-150%",sm:"10%"}}}
+                     />
+                  </Box>
+                 <b> Noida</b>
+                </Typography>
+              </div>
+
+              <Typography>
+                <Button
+                  variant="outlined"
+                  sx={{
+                    borderRadius: "20px",
+                    color: "black",
+                    borderColor: Colors.palette.background.card,
+                    fontSize: "10px",
+                    fontWeight: "600",
+                    marginRight: "10px",
+                  }}
+                >
+                  Apply Now
+                </Button>
+                <Button
+                  variant="outlined"
+                  sx={{
+                    borderRadius: "20px",
+                    color: "black",
+                    borderColor:Colors.palette.background.card,
+                    fontSize: "10px",
+                    fontWeight: "600",
+                  }}
+                >
+                  Not Interested
+                </Button>
+              </Typography>
+            </div>
+          </div>
+        </Grid>
+      </Grid>
+    </Box>
+
+
+
       {/*====== block 3 ======*/}
-      <div className=" block">
-        <div className="sub-block">
-          <div className="btn-primary">
+      {/* Dislay only Xs break point */}
+      <Box sx={{display:{xs:"block",sm:"none"}}}>
+      <Grid container spacing={5}>
+        <Grid item xs={12}>
+          <div  className={classes['block']}>
+            <div className={classes['sub-block']}>
+              <div className = {classes['btn-primary']}>
+                <Button
+                  variant="outlined"
+                  sx={{
+                    borderRadius: "20px",
+                    color: "black",
+                    borderColor: Colors.palette.background.card,
+                  }}
+                >
+                  Recommended
+                </Button>
+              </div>
+
+              <Typography className={classes['centered-content']} style={{color:Colors.palette.background.card,}}>
+            <h1>Sr Software Developer</h1>
+            <h3 className={classes['centered-content-sub']} style={{color:Colors.palette.primary.main,}}>
+              Lorem Ipsum Private Limited
+            </h3>
+          </Typography>
+          <p className={classes['text']}>9 hours Ago</p>
+            </div>
+
+            <div className={classes['bottom']}>
+              <div className={classes['logo']}>
+                <Typography
+                  className={classes['logo-content']}
+                  style={{
+                    fontSize: "18px",
+                    display: "flex",
+                    fontWeight: "100",
+                  }}
+                  //sx={{ marginLeft:{xs:"-70%",sm:"10%"}}}
+                 
+                >
+                  <BusinessCenterOutlinedIcon
+                    fontSize="large"
+                    style={{ marginRight: "8px" }}
+                  //  sx={{marginLeft:{xs:"-0%",sm:"10%"}}}
+                  />
+               <b>   0 To 3 Years Experience</b>
+                  <Box sx={{ flex: 1, textAlign: "center" }}>
+                    <PlaceOutlinedIcon fontSize="large"
+                    // sx={{marginLeft:{xs:"-150%",sm:"10%"}}}
+                     />
+                  </Box>
+                  <b> Delhi</b>
+                </Typography>
+              </div>
+
+              <Typography>
+                <Button
+                  variant="outlined"
+                  sx={{
+                    borderRadius: "20px",
+                    color: "black",
+                    borderColor: Colors.palette.background.card,
+                    fontSize: "10px",
+                    fontWeight: "600",
+                    marginRight: "10px",
+                  }}
+                >
+                  Apply Now
+                </Button>
+                <Button
+                  variant="outlined"
+                  sx={{
+                    borderRadius: "20px",
+                    color: "black",
+                    borderColor:Colors.palette.background.card,
+                    fontSize: "10px",
+                    fontWeight: "600",
+                  }}
+                >
+                  Not Interested
+                </Button>
+              </Typography>
+            </div>
+          </div>
+        </Grid>
+      </Grid>
+    </Box>
+
+
+
+      {/* dispaly break point in sm  */}
+      <Box sx={{display:{xs:"none",sm:"block"}}}>
+      <Grid Container spacing={5}>
+      <Grid item  xs={12}>
+      <div className={classes['block']}>
+        <div className={classes['sub-block']}>
+          <div className = {classes['btn-primary']}>
             <Button
               variant="outlined"
               sx={{
                 borderRadius: "20px",
                 color: "black",
-                borderColor: "#7797FE",
+                borderColor:Colors.palette.background.card,
               }}
             >
               Recommended
             </Button>
           </div>
 
-          <Typography className="centered-content">
+          <Typography className={classes['centered-content']} style={{color:Colors.palette.background.card,}}>
             <h1>Sr Software Developer</h1>
-            <h3 className="centered-content-sub">
+            <h3 className={classes['centered-content-sub']} style={{color:Colors.palette.primary.main,}}>
               Lorem Ipsum Private Limited
             </h3>
           </Typography>
-          <p className="text">1 day Ago</p>
+          <p className={classes['text']}>1 day Ago</p>
         </div>
 
-        <div className="bottom">
-          <div className="logo">
+        <div className={classes['bottom']}>
+          <div className={classes['logo']}>
             <Typography
-              className="logo-content"
+              className={classes['logo-content']}
               style={{ fontSize: "24px", display: "flex", fontWeight: "100" }}
+             
             >
               <BusinessCenterOutlinedIcon
                 fontSize="large"
@@ -483,16 +832,17 @@ const Header = () => {
                 <PlaceOutlinedIcon fontSize="large" />
               </Box>
               Delhi
+               
             </Typography>
           </div>
-
+          
           <Typography>
             <Button
               variant="outlined"
               sx={{
                 borderRadius: "20px",
                 color: "black",
-                borderColor: "#7797FE",
+                borderColor: Colors.palette.background.card,
                 fontSize: "10px",
                 fontWeight: "600",
                 marginRight: "10px",
@@ -505,7 +855,7 @@ const Header = () => {
               sx={{
                 borderRadius: "20px",
                 color: "black",
-                borderColor: "#7797FE",
+                borderColor:Colors.palette.background.card,
                 fontSize: "10px",
                 fontWeight: "600",
               }}
@@ -515,11 +865,15 @@ const Header = () => {
           </Typography>
         </div>
       </div>
+      </Grid>
+      </Grid>
+      </Box>
 
       {/*============ FOOTER ==============*/}
       <Footer/>
+      </Box>
     </>
   );
 };
 
-export default Header;
+export default Home;

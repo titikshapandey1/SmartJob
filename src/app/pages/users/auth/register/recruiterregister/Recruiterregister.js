@@ -318,7 +318,7 @@ const Login = () => {
                   }}
                   // onClick={formik.handleSubmit}
                 >
-                  <NavLink to="/adminlogin">
+                  <NavLink to="/userlogin">
                   Continue
                   </NavLink>
                 </Button>

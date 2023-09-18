@@ -7,12 +7,20 @@ import Stack from "@mui/material/Stack";
 import CheckIcon from "@mui/icons-material/Check";
 import Axios from "../../../utils/Axios";
 
-import "./EducationDetails.css";
+import Stepper from "@mui/material/Stepper";
+import Step from "@mui/material/Step";
+import StepLabel from "@mui/material/StepLabel";
+import Box from "@mui/material/Box";
+
+import classes from "./EducationDetails.module.css";
+import Colors from "../../../utils/colors";
+
+const steps = ["Basic Details", "Employment", "Education", "Last Step "];
 
 const heading = {
   fontWeight: "600",
   textAlign: "left",
-  color: "#6973FE",
+  color:Colors.palette.background.default,
   marginTop: "30px",
   marginBottom: "10px",
   lineHeight: "70px",
@@ -26,7 +34,7 @@ const textFeild = {
   width: "100%",
   height: "50px",
   borderRadius: "30px",
-  border: "1px solid #6973FE",
+  //  border: "1px solid #6973FE",
   padding: "0 14px",
   boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.3)",
 };
@@ -35,10 +43,10 @@ const outlinedButton = {
   fontSize: "14px",
   borderRadius: "30px",
   textTransform: "capitalize",
-  color: "black",
+  color: Colors.palette.primary.main,
   "&:hover": {
-    color: "white",
-    backgroundColor: "#7797FE",
+    color: Colors.palette.background.text,
+    backgroundColor: Colors.palette.background.card,
   },
 };
 
@@ -48,11 +56,11 @@ const button = {
   fontSize: "16px",
   borderRadius: "30px",
   textTransform: "capitalize",
-  backgroundColor: "#CCFFCC",
-  color: "black",
+  backgroundColor: Colors.palette.color.textColor,
+  color: Colors.palette.primary.main,
   "&:hover": {
-    color: "#7797FE",
-    backgroundColor: "white",
+    color: Colors.palette.background.card,
+    backgroundColor: Colors.palette.background.text,
   },
 };
 
@@ -87,53 +95,91 @@ export default function RegisterLastPage() {
 
   return (
     <>
+      {/*  */}
+
+      <Box
+        sx={{
+          width: "100%",
+          color: Colors.palette.background.text,
+          display: {
+            xs: "block",
+            sm: "none",
+            md: "none",
+            xl: "none",
+            lg: "none",
+          },
+        }}
+      >
+        <Stepper activeStep={2} alternativeLabel>
+          {steps.map((label) => (
+            <Step key={label}>
+              <StepLabel>{label}</StepLabel>
+            </Step>
+          ))}
+        </Stepper>
+      </Box>
+
+      {/*  */}
+
       <Grid container spacing={2}>
-        <Grid item xs={4}>
+        <Grid
+          item
+          xs={4}
+          sx={{
+            display: {
+              xs: "none",
+              sm: "block",
+              md: "block",
+              xl: "block",
+              lg: "block",
+            },
+          }}
+        >
           {/* Vertical Line */}
-          <div class="list-wrapper">
-            <div class="line"></div>
+          <div className={classes['list-wrapper']}>
+            <div className={classes['line']}></div>
 
-            <div class="list-item-wrapper">
-              <div class="list-bullet1">
+            <div className={classes['list-item-wrapper']}>
+              <div className={classes['list-bullet1']} style={{background:Colors.palette.background.card,color:Colors.palette.background.text}}>
                 <CheckIcon sx={{ fontSize: "16px" }} />
               </div>
-              <div class="list-item">
-                <div class="list-title">Basic Details</div>
+              <div className={classes['list-item']}>
+                <div className={classes['list-title']}>Basic Details</div>
               </div>
             </div>
 
-            <div class="list-item-wrapper">
-              <div class="list-bulletRLP2">
+            <div className={classes['list-item-wrapper']}>
+              <div className={classes['list-bulletRLP2']} style={{background:Colors.palette.background.default,color:Colors.palette.background.text}}>
                 <CheckIcon sx={{ fontSize: "16px" }} />
               </div>
-              <div class="list-item">
-                <div class="list-title">Employment</div>
+              <div className={classes['list-item']}>
+                <div className={classes['list-title']}>Employment</div>
               </div>
             </div>
 
-            <div class="list-item-wrapper">
-              <div class="list-bulletRLP3">
+            <div className={classes['list-item-wrapper']}>
+              <div className={classes['list-bulletRLP3']} style={{background:Colors.palette.background.default,color:Colors.palette.background.text}}>
                 <CheckIcon sx={{ fontSize: "16px" }} />
               </div>
-              <div class="list-item">
-                <div class="list-title">Education</div>
+              <div className={classes['list-item']}>
+                <div className={classes['list-title']}>Education</div>
               </div>
-              <div class="white-line"></div>
+              <div className={classes['white-line']}></div>
             </div>
 
-            <div class="list-item-wrapper">
-              <div class="list-bulletRLP4">
-                <CheckIcon sx={{ color: "#CCFFCC" }} />
+            <div className={classes['list-item-wrapper']}>
+              <div className={classes['list-bulletRLP4']}  style={{background:Colors.palette.color.textColor,color:Colors.palette.background.text}}>
+                <CheckIcon sx={{ color: Colors.palette.color.textColor }} />
               </div>
-              <div class="list-item">
-                <div class="list-title">Last Step</div>
+              <div className={classes['list-item']}>
+                <div className={classes['list-title']}>Last Step</div>
               </div>
-              <div class="white-line"></div>
+              <div className={classes['white-line']}></div>
             </div>
           </div>
         </Grid>
 
-        <Grid item xs={8}>
+        <Grid item xs={12} sm={8}>
           <Container>
             <Typography
               variant="h4"
@@ -146,9 +192,9 @@ export default function RegisterLastPage() {
               Profile Stronger.
             </p>
 
-            <h4>Highest Qualification</h4>
             <Grid container rowSpacing={4} columnSpacing={8}>
-              <Grid item xs={12} md={8}>
+              <Grid item xs={12} md={8} sx={{ mt: { xs: "4%", sm: "2%" } }}>
+                <h4>Highest Qualification</h4>
                 <TextField
                   label="Add Resume Headline And Get Relevant Job Recommendations"
                   variant="outlined"
@@ -160,9 +206,9 @@ export default function RegisterLastPage() {
               </Grid>
             </Grid>
 
-            <h4>Suggestions:</h4>
             <Grid container rowSpacing={4} columnSpacing={8}>
-              <Grid item xs={12} md={8}>
+              <Grid item xs={12} md={8} sx={{ mt: { xs: "4%", sm: "2%" } }}>
+                <h4>Suggestions:</h4>
                 <TextField
                   label="Graphic Designer & Team Lead With B.A 
                   In Arts&Humanities Currently Living In Noida"
@@ -175,9 +221,9 @@ export default function RegisterLastPage() {
               </Grid>
             </Grid>
 
-            <h4>Prefered Working Locations</h4>
             <Grid container rowSpacing={4} columnSpacing={8}>
-              <Grid item xs={12} md={8}>
+              <Grid item xs={12} md={8} sx={{ mt: { xs: "4%", sm: "2%" } }}>
+                <h4>Prefered Working Locations</h4>
                 <TextField
                   label="Eg: Noida,Delhi,Varanasi"
                   variant="outlined"
@@ -189,11 +235,11 @@ export default function RegisterLastPage() {
               </Grid>
             </Grid>
 
-            <h4>Suggestions:</h4>
             <Grid container rowSpacing={4} columnSpacing={8}>
-              <Grid item xs={12} md={12}>
+              <Grid item xs={12} md={12} sx={{ mt: { xs: "4%", sm: "2%" } }}>
+                <h4>Suggestions:</h4>
                 <div
-                  className="btn"
+                 className={classes['btn']}
                   style={{ ...(isSmallScreen && chipResponsive) }}
                 >
                   <Button
@@ -236,7 +282,7 @@ export default function RegisterLastPage() {
               </Grid>
               <Grid item xs={12} md={12}>
                 <div
-                  className="btn"
+                  className={classes['btn']}
                   style={{ ...(isSmallScreen && chipResponsive) }}
                 >
                   <Button
@@ -279,9 +325,9 @@ export default function RegisterLastPage() {
               </Grid>
             </Grid>
 
-            <h4>Preferred Salary</h4>
             <Grid container rowSpacing={4} columnSpacing={8}>
-              <Grid item xs={12} md={8}>
+              <Grid item xs={12} md={8} sx={{ mt: { xs: "4%", sm: "2%" } }}>
+                <h4>Preferred Salary</h4>
                 <TextField
                   label="Eg: 3,50,000"
                   variant="outlined"
@@ -293,10 +339,10 @@ export default function RegisterLastPage() {
               </Grid>
             </Grid>
 
-            <h4>Gender</h4>
             <Grid container rowSpacing={4} columnSpacing={12}>
-              <Grid item xs={12} md={6}>
-                <div className="btn">
+              <Grid item xs={12} md={6} sx={{ mt: { xs: "4%", sm: "2%" } }}>
+                <h4>Gender</h4>
+                <div className={classes['btn']}>
                   <Button
                     type="submit"
                     variant="outlined"
@@ -331,12 +377,13 @@ export default function RegisterLastPage() {
               </Grid>
             </Grid>
 
-            <div className="BottomBtn">
+            <div className={classes['BottomBtn']}>
               <Button
                 type="submit"
                 variant="contained"
                 sx={{
                   ...button,
+                  marginLeft: "-10%",
                 }}
               >
                 Submit

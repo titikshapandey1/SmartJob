@@ -66,7 +66,7 @@ export default function PostAJob() {
   return (
     <>
       <div >
-        <Navbar />
+        {/* <Navbar /> */}
         <br /><br />
       </div>
       <Container>

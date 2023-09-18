@@ -8,15 +8,33 @@ import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
 import CheckIcon from "@mui/icons-material/Check";
-import "./EducationDetails.css";
 import Axios from "../../../utils/Axios";
+import Stepper from "@mui/material/Stepper";
+import Step from "@mui/material/Step";
+import StepLabel from "@mui/material/StepLabel";
+
+import classes from "./EducationDetails.module.css";
+import Colors from "../../../utils/colors";
+import { Link } from "react-router-dom";
+
+const steps = ["Basic Details", "Employment", "Education", "Last Step "];
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
+
+
+
+const style = {
+  customLink: {
+    textDecoration: 'none',  // Remove underline
+    color: Colors.palette.background.text,         // Set text color to white
+    fontWeight: 'bold'     // Make the text bold
+  }
+};
 
 const heading = {
   fontWeight: "600",
   textAlign: "left",
-  color: "#6973FE",
+  color: Colors.palette.background.default,
   marginTop: "30px",
   marginBottom: "10px",
   lineHeight: "70px",
@@ -30,7 +48,7 @@ const textFeild = {
   width: "100%",
   height: "50px",
   borderRadius: "30px",
-  border: "1px solid #6973FE",
+  // border: "1px solid #6973FE",
   padding: "0 14px",
   boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.3)",
 };
@@ -41,11 +59,11 @@ const button = {
   fontSize: "16px",
   borderRadius: "30px",
   textTransform: "capitalize",
-  backgroundColor: "#CCFFCC",
-  color: "black",
+  backgroundColor:Colors.palette.color.textColor,
+  color: Colors.palette.primary.main,
   "&:hover": {
-    color: "#7797FE",
-    backgroundColor: "white",
+    color: Colors.palette.background.card,
+    backgroundColor:Colors.palette.background.text,
   },
 };
 
@@ -75,54 +93,92 @@ export default function EducationDetails2() {
 
   return (
     <>
+      {/*  */}
+
+      <Box
+        sx={{
+          width: "100%",
+          color: "white",
+          display: {
+            xs: "block",
+            sm: "none",
+            md: "none",
+            xl: "none",
+            lg: "none",
+          },
+        }}
+      >
+        <Stepper activeStep={1} alternativeLabel>
+          {steps.map((label) => (
+            <Step key={label}>
+              <StepLabel>{label}</StepLabel>
+            </Step>
+          ))}
+        </Stepper>
+      </Box>
+
+      {/*  */}
+
       <Grid container spacing={2}>
-        <Grid item xs={4} sx={{}}>
+        <Grid
+          item
+          xs={4}
+          sx={{
+            display: {
+              xs: "none",
+              sm: "block",
+              md: "block",
+              xl: "block",
+              lg: "block",
+            },
+          }}
+        >
           {/* Vertical Line */}
 
-          <div class="list-wrapper">
-            <div class="line"></div>
+          <div className={classes['list-wrapper']}>
+            <div className={classes['line']}></div>
 
-            <div class="list-item-wrapper">
-              <div class="list-bullet1">
+            <div className={classes['list-item-wrapper']}>
+              <div className={classes['list-bullet1']} style={{background:Colors.palette.background.card,color:Colors.palette.background.text}}>
                 <CheckIcon sx={{ fontSize: "16px" }} />
               </div>
-              <div class="list-item">
-                <div class="list-title">Basic Details</div>
+              <div className={classes['list-item']}>
+                <div className={classes['list-title']}>Basic Details</div>
               </div>
             </div>
 
-            <div class="list-item-wrapper">
-              <div class="list-bulletED2">
+            <div className={classes['list-item-wrapper']}>
+              <div className={classes['list-bulletED2']} style={{background:Colors.palette.background.default,color:Colors.palette.background.text}}>
                 <CheckIcon sx={{ fontSize: "16px" }} />
               </div>
-              <div class="list-item">
-                <div class="list-title">Employment</div>
+              <div className={classes['list-item']}>
+                <div className={classes['list-title']}>Employment</div>
               </div>
             </div>
 
-            <div class="list-item-wrapper">
-              <div class="list-bulletED3">
-                <CheckIcon sx={{ color: "#CCFFCC" }} />
+            <div className={classes['list-item-wrapper']}>
+              <div className={classes['list-bulletED3']} style={{background:Colors.palette.color.textColor,color:Colors.palette.background.text}}>
+                <CheckIcon sx={{ color:Colors.palette.color.textColor }} />
               </div>
-              <div class="list-item">
-                <div class="list-title">Education</div>
+              <div className={classes['list-item']}>
+                <div className={classes['list-title']}>Education</div>
               </div>
-              <div class="white-line"></div>
+              <div className={classes['white-line']}></div>
             </div>
 
-            <div class="list-item-wrapper">
-              <div class="list-bullet4">
-                <CheckIcon sx={{ color: "#6973FE" }} />
+            <div className={classes['list-item-wrapper']}>
+              <div className={classes['list-bullet4']} style={{background:Colors.palette.background.default,color:Colors.palette.background.text}}>
+                <CheckIcon sx={{ color: Colors.palette.background.default }} />
               </div>
-              <div class="list-item">
-                <div class="list-title">Last Step</div>
+              <div className={classes['list-item']}>
+                <div className={classes['list-title']}>Last Step</div>
               </div>
-              <div class="white-line"></div>
+              <div className={classes['white-line']}></div>
             </div>
           </div>
         </Grid>
 
-        <Grid item xs={8}>
+        <Grid item xs={12} sm={8}>
           <Container>
             <Typography
               variant="h4"
@@ -135,9 +191,10 @@ export default function EducationDetails2() {
               Value As A Potential Candidate.
             </p>
 
-            <h4>Highest Qualification</h4>
+            {/* <h4>Highest Qualification</h4> */}
             <Grid container rowSpacing={4} columnSpacing={8}>
-              <Grid item xs={12} md={8}>
+              <Grid item xs={12} md={8} sx={{ mt: { sm: "2%", xs: "4%" } }}>
+                <h4>Highest Qualification</h4>
                 <TextField
                   label="Eg; 10th,12th graduate,diploma"
                   variant="outlined"
@@ -149,9 +206,10 @@ export default function EducationDetails2() {
               </Grid>
             </Grid>
 
-            <h4>Course</h4>
+            {/* <h4>Course</h4> */}
             <Grid container rowSpacing={4} columnSpacing={8}>
-              <Grid item xs={12} md={8}>
+              <Grid item xs={12} md={8} sx={{ mt: { sm: "2%", xs: "4%" } }}>
+                <h4>Course</h4>
                 <TextField
                   label="Eg; B.A,Bsc,Bcom"
                   variant="outlined"
@@ -163,9 +221,9 @@ export default function EducationDetails2() {
               </Grid>
             </Grid>
 
-            <h4>Specilization</h4>
             <Grid container rowSpacing={4} columnSpacing={8}>
-              <Grid item xs={12} md={8}>
+              <Grid item xs={12} md={8} sx={{ mt: { sm: "2%", xs: "4%" } }}>
+                <h4>Specilization</h4>
                 <TextField
                   label="Art,Commerce,Science"
                   variant="outlined"
@@ -177,9 +235,9 @@ export default function EducationDetails2() {
               </Grid>
             </Grid>
 
-            <h4>University / Institute</h4>
             <Grid container rowSpacing={4} columnSpacing={8}>
-              <Grid item xs={12} md={8}>
+              <Grid item xs={12} md={8} sx={{ mt: { sm: "2%", xs: "4%" } }}>
+                <h4>University / Institute</h4>
                 <TextField
                   label="Eg; Mahatma Gandhi Kashi Vidhyapeeth (MGKVP)"
                   variant="outlined"
@@ -191,9 +249,9 @@ export default function EducationDetails2() {
               </Grid>
             </Grid>
 
-            <h4>Starting Year</h4>
             <Grid container rowSpacing={4} columnSpacing={8}>
-              <Grid item xs={12} md={8}>
+              <Grid item xs={12} md={8} sx={{ mt: { sm: "2%", xs: "4%" } }}>
+                <h4>Starting Year</h4>
                 <TextField
                   label="Eg; 2021"
                   variant="outlined"
@@ -205,9 +263,9 @@ export default function EducationDetails2() {
               </Grid>
             </Grid>
 
-            <h4>Passing Year</h4>
             <Grid container rowSpacing={4} columnSpacing={8}>
-              <Grid item xs={12} md={8}>
+              <Grid item xs={12} md={8} sx={{ mt: { sm: "2%", xs: "4%" } }}>
+                <h4>Passing Year</h4>
                 <TextField
                   label="Eg; 2023"
                   variant="outlined"
@@ -219,14 +277,15 @@ export default function EducationDetails2() {
               </Grid>
             </Grid>
 
-            <div className="BottomBtn">
+            <div classNameName="BottomBtn">
+            <Link to="/registerlastpage" style={style.customLink}> 
               <Button
                 type="submit"
                 variant="contained"
                 sx={{ ...button, ...(isSmallScreen && ButtonResponsive) }}
               >
                 Continue <ArrowForwardOutlinedIcon />
-              </Button>
+              </Button></Link>
             </div>
           </Container>
         </Grid>

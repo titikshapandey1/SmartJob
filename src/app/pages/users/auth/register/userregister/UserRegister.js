@@ -23,7 +23,7 @@ import Linkedin from "../../../../../assets/img/Linkedin.png";
 import colors from "../../../../../utils/colors";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
-
+import { NavLink } from "react-router-dom";
 // import { useFormik } from "formik/dist";
 // import * as Yup from "yup";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
@@ -339,7 +339,10 @@ const Login = () => {
                   }}
                   // onClick={formik.handleSubmit}
                 >
+                  <NavLink to="/userlogin">
+
                   Continue
+                  </NavLink>
                 </Button>
               </Grid>
 
@@ -392,7 +395,10 @@ const Login = () => {
                     ...btnstyles,
                   }}
                 >
+                  <NavLink to="/userlogin">
+
                   Log In
+                  </NavLink>
                 </Button>
               </Grid>
             </Grid>

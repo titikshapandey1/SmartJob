@@ -13,12 +13,15 @@ import {
   Grid,
   TextField,
   Paper,
+  Container,
 } from "@mui/material";
 import { LocationOn, WorkOutline, Search } from "@mui/icons-material";
 import DrawerComp from "../../../partials/Drawer";
-import "../../../partials/Footer.css";
+// import "../../../partials/Footer.css";
 import Footer from "../../../partials/Footer";
-import Axios from "../../../utils/Axios";
+// import Axios from "../../../utils/Axios";
+import Navbar from "../../../partials/Navbar";
+import Colors from "../../../utils/colors";
 
 const layoutStyles = {
   width: "auto",
@@ -101,7 +104,7 @@ const companyLayoutStylesResponsive = {
 };
 
 const titleStyles = {
-  color: "#6973FE",
+  color: Colors.palette.background.default,
 };
 
 const contentStyles = {
@@ -114,26 +117,26 @@ const buttonStyles = {
   width: { xs: "100%", md: "225px" },
   height: "40px",
   borderRadius: "30px",
-  backgroundColor: "#CCFFCC",
+  backgroundColor: Colors.palette.color.textColor,
   fontSize: "20px",
   boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.3)",
   textTransform: "capitalize",
-  color: "black",
+  color: Colors.palette.primary.main,
   marginRight: "10px",
   "&:hover": {
-    color: "#7797FE",
-    backgroundColor: "white",
+    color:Colors.palette.background.card,
+    backgroundColor: Colors.palette.background.text,
   },
 };
 
 const linkStyles = {
   textDecoration: "none",
   fontSize: "24px",
-  color: "#6973FE",
+  color: Colors.palette.background.defaults,
 };
 
 const dividerStyles = {
-  backgroundColor: "#6973FE",
+  backgroundColor: Colors.palette.background.defaults,
   height: "55px",
 };
 
@@ -143,93 +146,10 @@ const CompanyNames = () => {
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
   const isSmallScreen = useMediaQuery("(max-width: 960px)");
 
-  // const [loading, setLoading] = useState(false);
-  // const [data, setData] = useState([]);
-
-  // const CompanyName = async () => {
-  // setLoading(true);
-  //   try {
-  //     const response = await Axios.get("/");
-  //     setData(response.data.data);
-  //   } catch (error) {
-  //     console.error(error);
-  //   } finally{
-  //     setLoading(false);
-  //    }
-  // };
-
-  // useEffect(() => {
-  //   CompanyName();
-  // }, []);
-
   return (
     <>
-      <AppBar
-        sx={{
-          background: "#6973FE",
-          boxShadow: "none",
-          position: "static",
-          height: "70px",
-        }}
-      >
-        <Toolbar>
-          <DrawerComp sx={{ marginRight: "auto" }} />
-          <Typography
-            sx={{
-              font: "Readex Pro",
-              fontWeight: "400",
-              fontSize: "2rem",
-              marginRight: "auto",
-              marginBottom: "8px",
-            }}
-          >
-            Smart Job
-          </Typography>
-          {isMatch ? (
-            <></>
-          ) : (
-            <>
-              <Tabs
-                sx={{
-                  font: "Poppins",
-                  fontWeight: "400",
-                  marginRight: "auto",
-                }}
-                textColor="white"
-                value={value}
-                onChange={(e, value) => setValue(value)}
-              >
-                <Tab label="Jobs" />
-                <Tab label="Companies" />
-                <Tab label="Services" />
-                <Tab label="User Profile" />
-              </Tabs>
-              <Button
-                sx={{
-                  marginRight: "auto",
-                  borderRadius: "20px",
-                  color: "white",
-                  borderColor: "white",
-                }}
-                variant="outlined"
-              >
-                Register
-              </Button>
-              <Button
-                sx={{
-                  marginRight: "auto",
-                  borderRadius: "20px",
-                  color: "white",
-                  borderColor: "white",
-                }}
-                variant="outlined"
-              >
-                Login
-              </Button>
-            </>
-          )}
-        </Toolbar>
-      </AppBar>
+    {/* <Navbar/> */}
+    
       {/* Search Bar */}
       <Box
         component="form" // Form element to handle form submission
@@ -302,7 +222,8 @@ const CompanyNames = () => {
       </Box>
 
       {/* Navigation Bar */}
-      <Box
+      <Box sx={{display:{xs:"block",sm:"none",md:"block",xl:"block",lg:"block"}}}>
+       <Box
         sx={(theme) => ({
           ...navBarStyles,
           [theme.breakpoints.down("sm")]: {
@@ -312,7 +233,7 @@ const CompanyNames = () => {
       >
         {/* Navigation links */}
 
-        <a href="/" style={linkStyles}>
+         <a href="/" style={linkStyles}>
           Companies
         </a>
         <a href="/" style={linkStyles}>
@@ -329,8 +250,54 @@ const CompanyNames = () => {
         </a>
         <a href="/" style={linkStyles}>
           Other Jobs
-        </a>
+        </a> 
       </Box>
+      </Box> 
+
+
+      <Box sx={{    display:{xs:"none",sm:"block",md:"none",xl:"none",lg:"none"},ml:"18%"}}>
+      <Container >
+      <Grid container spacing={25}>
+        {/* Section 1 */}
+        <Grid item xs={12} sm={3} md={4}>
+          {/* <Paper elevation={3} sx={{ ...sectionStyles, backgroundColor: 'blue' }}> */}
+          <a href="/" style={linkStyles}>
+          Companies
+        </a>
+        <br/> <br/>
+        <a href="/" style={linkStyles}>
+          Skill
+        </a>
+          {/* </Paper> */}
+        </Grid>
+
+        {/* Section 2 */}
+        <Grid item xs={12} sm={3} md={3}>
+          {/* <Paper elevation={3} sx={{ ...sectionStyles, backgroundColor: 'green' }}> */}
+          <a href="/" style={linkStyles}>
+          Designation
+        </a> <br/> <br/>
+        <a href="/" style={linkStyles}>
+          Category
+        </a>
+          {/* </Paper> */}
+        </Grid>
+
+        {/* Section 3 */}
+        <Grid item xs={12}  sm={3} md={3}>
+          {/* <Paper elevation={3} sx={{ ...sectionStyles, backgroundColor: 'orange' }}>*/}
+          <a href="/" style={linkStyles}>
+          Cities
+        </a><br/><br/>
+        <a href="/" style={linkStyles}>
+        <p>Other Jobs</p>   
+        </a>
+          {/* </Paper> */}
+        </Grid>
+      </Grid>
+      </Container>
+    </Box>
+  
 
       {/* Company Layout */}
       <Box
@@ -342,7 +309,7 @@ const CompanyNames = () => {
         })}
       >
         <Grid container rowSpacing={6} columnSpacing={8}>
-          <Grid item xs={12} sm={6} md={6}>
+          <Grid item xs={12} sm={12} md={12} xl={6}>
             <Paper elevation={3} sx={{ ...layoutStyles }}>
               <div style={contentStyles}>
                 <h1 style={titleStyles}>Jobs by Top Companies</h1>
@@ -357,13 +324,13 @@ const CompanyNames = () => {
               <Typography sx={{ marginTop: "25px" }}>view all</Typography>
             </Paper>
           </Grid>
-          <Grid item xs={12} sm={6} md={6}>
+          <Grid item xs={12} sm={12} md={12} xl={6}>
             <Paper
               elevation={3}
               sx={{
                 ...layoutStyles,
-                backgroundColor: "#7797FE",
-                color: "white",
+                backgroundColor: Colors.palette.background.card,
+                color:Colors.palette.background.text,
               }}
             >
               <div style={contentStyles}>
@@ -379,13 +346,13 @@ const CompanyNames = () => {
               <Typography sx={{ marginTop: "25px" }}>view all</Typography>
             </Paper>
           </Grid>
-          <Grid item xs={12} sm={6} md={6}>
+          <Grid item xs={12} sm={12} md={12} xl={6}>
             <Paper
               elevation={3}
               sx={{
                 ...layoutStyles,
-                backgroundColor: "#7797FE",
-                color: "white",
+                backgroundColor: Colors.palette.background.card,
+                color:Colors.palette.background.text,
               }}
             >
               <div style={contentStyles}>
@@ -401,7 +368,7 @@ const CompanyNames = () => {
               <Typography sx={{ marginTop: "25px" }}>view all</Typography>
             </Paper>
           </Grid>
-          <Grid item xs={12} sm={6} md={6}>
+          <Grid item xs={12} sm={12} md={12} xl={6}>
             <Paper elevation={3} sx={{ ...layoutStyles }}>
               <div style={contentStyles}>
                 <h1 style={titleStyles}>Jobs by top Category</h1>
@@ -416,7 +383,7 @@ const CompanyNames = () => {
               <Typography sx={{ marginTop: "25px" }}>view all</Typography>
             </Paper>
           </Grid>
-          <Grid item xs={12} sm={6} md={6}>
+          <Grid item xs={12} sm={12} md={12} xl={6}>
             <Paper elevation={3} sx={{ ...layoutStyles }}>
               <div style={contentStyles}>
                 <h1 style={titleStyles}>Jobs by Top Cities</h1>
@@ -431,13 +398,13 @@ const CompanyNames = () => {
               <Typography sx={{ marginTop: "25px" }}>view all</Typography>
             </Paper>
           </Grid>
-          <Grid item xs={12} sm={6} md={6}>
+          <Grid item xs={12} sm={12} md={12} xl={6}>
             <Paper
               elevation={3}
               sx={{
                 ...layoutStyles,
-                backgroundColor: "#7797FE",
-                color: "white",
+                backgroundColor: Colors.palette.background.card,
+                color:Colors.palette.background.text,
               }}
             >
               <div style={contentStyles}>

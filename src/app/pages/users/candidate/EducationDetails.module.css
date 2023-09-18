@@ -40,52 +40,52 @@ h4{
 .list-bullet1 {
   float:left;
   margin-right:4rem;
-  background:#6973FE;
+   /* background:#6973FE;  */
   height:30px;
   width:30px;
   line-height:30px;
   border-radius:100px;
   font-weight:700;
-  color:white;
+  /* color:white; */
   text-align:center;
 }
 
 .list-bullet2 {
   float:left;
   margin-right:4rem;
-  background: #CCFFCC;
+  /* background: #CCFFCC; */
   height:30px;
   width:30px;
   line-height:30px;
   border-radius:100px;
   font-weight:700;
-  color:white;
+  /* color:white; */
   text-align:center;
 }
 
 .list-bullet3 {
   float:left;
   margin-right:4rem;
-  background: #6973FE;
+  /* background: #6973FE; */
   height:30px;
   width:30px;
   line-height:30px;
   border-radius:100px;
   font-weight:700;
-  color:white;
+  /* color:white; */
   text-align:center;
 }
 
 .list-bullet4 {
   float:left;
   margin-right:4rem;
-  background:#6973FE;
+  /* background:#6973FE; */
   height:30px;
   width:30px;
   line-height:30px;
   border-radius:100px;
   font-weight:700;
-  color:white;
+  /* color:white; */
   text-align:center;
 }
 
@@ -94,39 +94,39 @@ h4{
 .list-bulletED2 {
   float:left;
   margin-right:4rem;
-  background: #6973FE;
+  /* background: #6973FE; */
   height:30px;
   width:30px;
   line-height:30px;
   border-radius:100px;
   font-weight:700;
-  color:white;
+  /* color:white; */
   text-align:center;
 }
 
 .list-bulletED3 {
   float:left;
   margin-right:4rem;
-  background: #CCFFCC;
+  /* background: #CCFFCC; */
   height:30px;
   width:30px;
   line-height:30px;
   border-radius:100px;
   font-weight:700;
-  color:white;
+  /* color:white; */
   text-align:center;
 }
 
 .list-bullet4 {
   float:left;
   margin-right:4rem;
-  background:#6973FE;
+  /* background:#6973FE; */
   height:30px;
   width:30px;
   line-height:30px;
   border-radius:100px;
   font-weight:700;
-  color:white;
+  /* color:white; */
   text-align:center;
 }
 
@@ -135,39 +135,39 @@ h4{
 .list-bulletRLP2 {
   float:left;
   margin-right:4rem;
-  background: #6973FE;
+  /* background: #6973FE; */
   height:30px;
   width:30px;
   line-height:30px;
   border-radius:100px;
   font-weight:700;
-  color:white;
+  /* color:white; */
   text-align:center;
 }
 
 .list-bulletRLP3 {
   float:left;
   margin-right:4rem;
-  background: #6973FE;
+  /* background: #6973FE; */
   height:30px;
   width:30px;
   line-height:30px;
   border-radius:100px;
   font-weight:700;
-  color:white;
+  /* color:white; */
   text-align:center;
 }
 
 .list-bulletRLP4 {
   float:left;
   margin-right:4rem;
-  background:#CCFFCC;
+  /* background:#CCFFCC; */
   height:30px;
   width:30px;
   line-height:30px;
   border-radius:100px;
   font-weight:700;
-  color:white;
+  /* color:white; */
   text-align:center;
 }
 

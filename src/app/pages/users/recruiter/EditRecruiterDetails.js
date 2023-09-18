@@ -10,11 +10,11 @@ import {
   useMediaQuery,
 } from "@mui/material";
 
-// import Sidebar from "../../../partials/Sidebar";
-import Sidebar from "../admin/common/Sidebar";
+import "./EditRecruiterDetails.css";
+import Sidebar from "../../../partials/Sidebar";
 import user from "../../../assets/img/users/User.jpg";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
-// import Axios from "../../../utils/Axios";
+import Axios from "../../../utils/Axios";
 
 const heading = {
   fontWeight: "600",
@@ -26,18 +26,25 @@ const heading = {
 };
 
 const headingResponsive = {
-  fontSize: "1.2rem",
+  fontSize: "1.4rem",
 };
 
-const boxStyles = {
-  marginTop: "8%",
-  justifyContent: "center",
-  alignItem: "center",
+const dividerResponsive = {
+  display: "none",
+};
+
+const textFeild = {
+  width: "100%",
+  height: "50px",
+  borderRadius: "30px",
+  border: "1px solid #6973FE",
+  padding: "0 14px",
+  boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.3)",
 };
 
 const button1 = {
   width: "auto",
-  fontSize: "16px",
+  fontSize: "18px",
   marginBottom: "10px",
   borderRadius: "30px",
   textTransform: "capitalize",
@@ -49,13 +56,9 @@ const button1 = {
   },
 };
 
-const button1Responsive = {
-  fontSize: "10px",
-};
-
 const button2 = {
   width: "auto",
-  fontSize: "16px",
+  fontSize: "18px",
   marginBottom: "10px",
   borderRadius: "30px",
   textTransform: "capitalize",
@@ -66,26 +69,6 @@ const button2 = {
     backgroundColor: "white",
   },
 };
-
-const button2Responsive = {
-  width: "5%",
-  fontSize: "10px",
-  borderRadius: "15px",
-};
-
-const imgStyles = {
-  marginTop:"2%",
-  Width: "100%",
-  Height: "100%",
-};
-
-const imgResponsive = {
-  marginTop:"5%",
-  maxWidth: "50%",
-  maxHeight: "50%",
-};
-
-
 
 export default function EditRecruiterDetails() {
   const isSmallScreen = useMediaQuery("(max-width: 960px)");
@@ -108,100 +91,90 @@ export default function EditRecruiterDetails() {
 
   return (
     <Box sx={{ display: "flex" }}>
-      <Sidebar/>
+      <Sidebar />
 
-      <Box component="main" sx={{ ...boxStyles }}>
+      <Grid>
+        <Divider
+          orientation="vertical"
+          sx={{
+            width: "0.5px",
+            margin: "0 50px",
+            backgroundColor: "black",
+            ...(isSmallScreen && dividerResponsive),
+          }}
+        ></Divider>
+      </Grid>
+      <Box component="main">
         <Container>
-          <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+          <div className="profile-container">
             <Typography
               variant="h4"
               sx={{ ...heading, ...(isSmallScreen && headingResponsive) }}
             >
               Edit Recruiter Profile
             </Typography>
-            <Typography
-              sx={{ ...imgStyles, ...(isSmallScreen && imgResponsive) }}
-            >
-             <div
-                style={{
-                  marginRight: "20px",
-                  maxWidth: isSmallScreen ? "50px" : "100%",
-                  height: isSmallScreen ? "50px" : "auto",
-                }}
-              >
-                <img
-                  src={user}
-                  alt=""
-                  style={{ width: "100%", height: "100%" }}
-                />
-              </div>
-            </Typography>
-          </Box>
+            <img src={user} alt="" className="profile-image" />
+          </div>
 
-          <Grid
-            container
-            rowSpacing={4}
-            columnSpacing={8}
-            sx={{ justifyContent: "center", alignItems: "center" }}
-          >
+          <Grid container rowSpacing={4} columnSpacing={8}>
             <Grid item xs={12} md={6}>
               <TextField
                 label="First Name"
-                id="fname"
-                name="fname"
                 variant="outlined"
                 fullWidth
-                InputProps={{ sx: { borderRadius: "33px" } }}
+                InputProps={{
+                  style: textFeild,
+                }}
               />
             </Grid>
             <Grid item xs={12} md={6}>
               <TextField
                 label="Last Name"
-                id="lname"
-                name="lname"
                 variant="outlined"
                 fullWidth
-                InputProps={{ sx: { borderRadius: "33px" } }}
+                InputProps={{
+                  style: textFeild,
+                }}
               />
             </Grid>
             <Grid item xs={12} md={6}>
               <TextField
                 label="Email Address"
-                id="email"
-                name="email"
                 variant="outlined"
                 fullWidth
-                InputProps={{ sx: { borderRadius: "33px" } }}
+                InputProps={{
+                  style: textFeild,
+                }}
               />
             </Grid>
             <Grid item xs={12} md={6}>
               <TextField
                 label="Mobile Number"
-                id="mobile"
-                name="mobile"
                 variant="outlined"
                 fullWidth
-                InputProps={{ sx: { borderRadius: "33px" } }}
+                InputProps={{
+                  style: textFeild,
+                }}
               />
             </Grid>
             <Grid item xs={12} md={6}>
               <TextField
                 label="Choose Current Location"
-                id="location"
-                name="location"
                 variant="outlined"
                 fullWidth
-                InputProps={{ sx: { borderRadius: "33px" } }}
+                InputProps={{
+                  style: textFeild,
+                }}
               />
             </Grid>
             <Grid item xs={12} md={6}>
               <TextField
                 label="Upload Your Photo"
-                id="photo"
-                name="photo"
                 variant="outlined"
                 fullWidth
-                InputProps={{ sx: { borderRadius: "33px" } }}
+                InputProps={{
+                  style: textFeild,
+                }}
               />
             </Grid>
           </Grid>
@@ -216,127 +189,113 @@ export default function EditRecruiterDetails() {
             <Grid item xs={12} md={6}>
               <TextField
                 label="Current Company Name"
-                id="companyname"
-                name="company name"
                 variant="outlined"
                 fullWidth
-                InputProps={{ sx: { borderRadius: "33px" } }}
+                InputProps={{
+                  style: textFeild,
+                }}
               />
             </Grid>
             <Grid item xs={12} md={6}>
               <TextField
                 label="Current Designation"
-                id="desigantion"
-                name="desigantion"
                 variant="outlined"
                 fullWidth
-                InputProps={{ sx: { borderRadius: "33px" } }}
+                InputProps={{
+                  style: textFeild,
+                }}
               />
             </Grid>
             <Grid item xs={12} md={6}>
               <TextField
                 label="From Year"
-                id="fromyear"
-                name="from year"
                 variant="outlined"
                 fullWidth
-                InputProps={{ sx: { borderRadius: "33px" } }}
+                InputProps={{
+                  style: textFeild,
+                }}
               />
             </Grid>
             <Grid item xs={12} md={6}>
               <TextField
                 label="To Year"
-                id="toyear"
-                name="to year"
                 variant="outlined"
                 fullWidth
-                InputProps={{ sx: { borderRadius: "33px" } }}
+                InputProps={{
+                  style: textFeild,
+                }}
               />
             </Grid>
             <Grid item xs={12} md={6}>
               <TextField
                 label="Address Line 1"
-                id="address1"
-                name="address line 1"
                 variant="outlined"
                 fullWidth
-                InputProps={{ sx: { borderRadius: "33px" } }}
+                InputProps={{
+                  style: textFeild,
+                }}
               />
             </Grid>
             <Grid item xs={12} md={6}>
               <TextField
                 label="Address Line 2"
-                id="address2"
-                name="address line 2"
                 variant="outlined"
                 fullWidth
-                InputProps={{ sx: { borderRadius: "33px" } }}
+                InputProps={{
+                  style: textFeild,
+                }}
               />
             </Grid>
             <Grid item xs={12} md={6}>
               <TextField
                 label="City"
-                id="city"
-                name="city"
                 variant="outlined"
                 fullWidth
-                InputProps={{ sx: { borderRadius: "33px" } }}
+                InputProps={{
+                  style: textFeild,
+                }}
               />
             </Grid>
             <Grid item xs={12} md={6}>
               <TextField
                 label="State/Province/Region"
-                id="state"
-                name="state"
                 variant="outlined"
                 fullWidth
-                InputProps={{ sx: { borderRadius: "33px" } }}
+                InputProps={{
+                  style: textFeild,
+                }}
               />
             </Grid>
             <Grid item xs={12} md={6}>
               <TextField
                 label="Zip Code"
-                id="zip"
-                name="zip code"
                 variant="outlined"
                 fullWidth
-                InputProps={{ sx: { borderRadius: "33px" } }}
+                InputProps={{
+                  style: textFeild,
+                }}
               />
             </Grid>
             <Grid item xs={12} md={6}>
               <TextField
                 label="Country"
-                id="country"
-                name="country"
                 variant="outlined"
                 fullWidth
-                InputProps={{ sx: { borderRadius: "33px" } }}
+                InputProps={{
+                  style: textFeild,
+                }}
               />
             </Grid>
           </Grid>
 
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "space-around",
-              margin: "10px",
-            }}
-          >
-            <Button
-              type="submit"
-              variant="contained"
-              sx={{ ...button1, ...(isSmallScreen && button1Responsive) }}
-            >
+          <div className="btn">
+            <Button type="submit" variant="contained" sx={button1}>
               Cancel
             </Button>
-            <Button
-              type="submit"
-              variant="contained"
-              sx={{ ...button2, ...(isSmallScreen && button2Responsive) }}
-            >
+            <Button type="submit" variant="contained" sx={button2}>
               Save Changes
             </Button>
-          </Box>
+          </div>
         </Container>
       </Box>
     </Box>
