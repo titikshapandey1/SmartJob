@@ -1,7 +1,8 @@
 
 import React, { useState } from "react";
 import {
-
+Card,
+CardContent,
   Button,
   Typography,
   useMediaQuery,
@@ -30,7 +31,7 @@ const searchBarStyles = {
   margin: "10px",
   padding: "8px 16px",
   border: "1px solid #6973FE",
-  height: "70px",
+  height: "60px",
 };
 
 const searchBarStylesResponsive = {
@@ -400,7 +401,7 @@ const JobDetails = () => {
           </Typography>
 
           {/* Box 1 */}
-          <Box
+          {/* <Box
             style={{
               width: "auto",
               height: "auto",
@@ -422,33 +423,32 @@ const JobDetails = () => {
             <Typography>0-0 INR</Typography>
             <br />
             <Typography>13 days ago</Typography>
-          </Box>
+          </Box> */}
+          <Card
+  style={{
+    width: "auto",
+    height: "auto",
+    borderRadius: "33px",
+    backgroundColor: "#7797FE",
+    margin: "30px",
+    color: "white",
+    boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.3)",
+  }}
+>
+  <CardContent sx={{margin:"20px"}}>
+    <Typography variant="h6">Animator</Typography>
+    <Typography>KEYWORDS STUDIOS</Typography>
+    <br />
+    <Typography>Full time</Typography>
+    <Typography>Gurgaon / Gurugram, India</Typography>
+    <Typography>0-0 INR</Typography>
+    <br />
+    <Typography>13 days ago</Typography>
+  </CardContent>
+</Card>
 
-          <Box
-            style={{
-              width: "auto",
-              height: "auto",
-              borderRadius: "33px",
-              backgroundColor: "#7797FE",
-              paddingLeft: "70px",
-              paddingTop: "17px",
-              paddingBottom: "17px",
-              margin: "30px",
-              color: "white",
-              boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.3)",
-            }}
-          >
-            <Typography variant="h6">Animator</Typography>
-            <Typography>KEYWORDS STUDIOS</Typography>
-            <br />
-            <Typography>Full time</Typography>
-            <Typography>Gurgaon / Gurugram, India</Typography>
-            <Typography>0-0 INR</Typography>
-            <br />
-            <Typography>13 days ago</Typography>
-          </Box>
 
-          <Box
+          {/* <Box
             style={{
               width: "auto",
               height: "auto",
@@ -470,32 +470,124 @@ const JobDetails = () => {
             <Typography>0-0 INR</Typography>
             <br />
             <Typography>13 days ago</Typography>
-          </Box>
+          </Box> */}
+          <Card
+  style={{
+    width: "auto",
+    height: "auto",
+    borderRadius: "33px",
+    backgroundColor: "#7797FE",
+    margin: "30px",
+    color: "white",
+    boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.3)",
+  }}
+>
+  <CardContent sx={{margin:"20px"}}>
+    <Typography variant="h6">Animator</Typography>
+    <Typography>KEYWORDS STUDIOS</Typography>
+    <br />
+    <Typography>Full time</Typography>
+    <Typography>Gurgaon / Gurugram, India</Typography>
+    <Typography>0-0 INR</Typography>
+    <br />
+    <Typography>13 days ago</Typography>
+  </CardContent>
+</Card>
 
-          <Box
-            style={{
-              width: "auto",
-              height: "auto",
-              borderRadius: "33px",
-              backgroundColor: "#7797FE",
-              paddingLeft: "70px",
-              paddingTop: "17px",
-              paddingBottom: "17px",
-              margin: "30px",
-              color: "white",
-              boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.3)",
-            }}
-          >
-            <Typography variant="h6">Animator</Typography>
-            <Typography>KEYWORDS STUDIOS</Typography>
-            <br />
-            <Typography>Full time</Typography>
-            <Typography>Gurgaon / Gurugram, India</Typography>
-            <Typography>0-0 INR</Typography>
-            <br />
-            <Typography>13 days ago</Typography>
-          </Box>
 
+          {/* <Box
+            style={{
+              width: "auto",
+              height: "auto",
+              borderRadius: "33px",
+              backgroundColor: "#7797FE",
+              paddingLeft: "70px",
+              paddingTop: "17px",
+              paddingBottom: "17px",
+              margin: "30px",
+              color: "white",
+              boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.3)",
+            }}
+          >
+            <Typography variant="h6">Animator</Typography>
+            <Typography>KEYWORDS STUDIOS</Typography>
+            <br />
+            <Typography>Full time</Typography>
+            <Typography>Gurgaon / Gurugram, India</Typography>
+            <Typography>0-0 INR</Typography>
+            <br />
+            <Typography>13 days ago</Typography>
+          </Box> */}
+          <Card
+  style={{
+    width: "auto",
+    height: "auto",
+    borderRadius: "33px",
+    backgroundColor: "#7797FE",
+    margin: "30px",
+    color: "white",
+    boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.3)",
+  }}
+>
+  <CardContent sx={{margin:"20px"}}>
+    <Typography variant="h6">Animator</Typography>
+    <Typography>KEYWORDS STUDIOS</Typography>
+    <br />
+    <Typography>Full time</Typography>
+    <Typography>Gurgaon / Gurugram, India</Typography>
+    <Typography>0-0 INR</Typography>
+    <br />
+    <Typography>13 days ago</Typography>
+  </CardContent>
+</Card>
+
+
+          {/* <Box
+            style={{
+              width: "auto",
+              height: "auto",
+              borderRadius: "33px",
+              backgroundColor: "#7797FE",
+              paddingLeft: "70px",
+              paddingTop: "17px",
+              paddingBottom: "17px",
+              margin: "30px",
+              color: "white",
+              boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.3)",
+            }}
+          >
+            <Typography variant="h6">Animator</Typography>
+            <Typography>KEYWORDS STUDIOS</Typography>
+            <br />
+            <Typography>Full time</Typography>
+            <Typography>Gurgaon / Gurugram, India</Typography>
+            <Typography>0-0 INR</Typography>
+            <br />
+            <Typography>13 days ago</Typography>
+          </Box> */}
+<Card
+  style={{
+    width: "auto",
+    height: "auto",
+    borderRadius: "33px",
+    backgroundColor: "#7797FE",
+    margin: "30px",
+    color: "white",
+    boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.3)",
+  }}
+>
+  <CardContent sx={{margin:"20px"}}>
+    <Typography variant="h6">Animator</Typography>
+    <Typography>KEYWORDS STUDIOS</Typography>
+    <br />
+    <Typography>Full time</Typography>
+    <Typography>Gurgaon / Gurugram, India</Typography>
+    <Typography>0-0 INR</Typography>
+    <br />
+    <Typography>13 days ago</Typography>
+  </CardContent>
+</Card>
+{/* 
           <Box
             style={{
               width: "auto",
@@ -518,7 +610,30 @@ const JobDetails = () => {
             <Typography>0-0 INR</Typography>
             <br />
             <Typography>13 days ago</Typography>
-          </Box>
+          </Box> */}
+          <Card
+  style={{
+    width: "auto",
+    height: "auto",
+    borderRadius: "33px",
+    backgroundColor: "#7797FE",
+    margin: "30px",
+    color: "white",
+    boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.3)",
+  }}
+>
+  <CardContent sx={{margin:"20px"}}>
+    <Typography variant="h6">Animator</Typography>
+    <Typography>KEYWORDS STUDIOS</Typography>
+    <br />
+    <Typography>Full time</Typography>
+    <Typography>Gurgaon / Gurugram, India</Typography>
+    <Typography>0-0 INR</Typography>
+    <br />
+    <Typography>13 days ago</Typography>
+  </CardContent>
+</Card>
+
         </Grid>
 
         <Grid item xs={isSmallScreen ? 12 : 6}>
@@ -572,7 +687,7 @@ const JobDetails = () => {
               <Typography variant="p"> Recruiter Information</Typography>
             </Box>
           </Box>
-          <Box
+          {/* <Box
             style={{
               width: "auto",
               height: "165px",
@@ -590,7 +705,24 @@ const JobDetails = () => {
           >
             Gurgaon / Gurugram, India
             <br /> 0 - 0 Years <br /> 13 days ago <br /> 2 Applied
-          </Box>
+          </Box> */}
+          <Card
+  style={{
+    width: "auto",
+    height: "auto",
+    borderRadius: "33px",
+    backgroundColor: "#7797FE",
+    margin: "30px",
+    color: "white",
+    boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.3)",
+  }}
+>
+  <CardContent sx={{textAlign:"center"}}>
+  Gurgaon / Gurugram, India
+            <br /> 0 - 0 Years <br /> 13 days ago <br /> 2 Applied
+  </CardContent>
+</Card>
+
 
           <Box
             style={{
