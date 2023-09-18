@@ -1,11 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
-  AppBar,
+  
   Button,
-  Tab,
-  Tabs,
-  Toolbar,
-  Typography,
+
   useMediaQuery,
   useTheme,
   Box,
@@ -15,8 +12,8 @@ import {
   Container,
 } from "@mui/material";
 import { LocationOn, WorkOutline, Search } from "@mui/icons-material";
-import DrawerComp from "../../../partials/Drawer";
-import Axios from "../../../utils/Axios";
+//import DrawerComp from "../../../partials/Drawer";
+//import Axios from "../../../utils/Axios";
 
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import WorkOutlineOutlinedIcon from "@mui/icons-material/WorkOutlineOutlined";
@@ -25,10 +22,10 @@ import NewspaperOutlinedIcon from "@mui/icons-material/NewspaperOutlined";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import Footer from "../../../partials/Footer";
 import classes from "./JobSeeker.module.css";
-import Navbar from "../../../partials/Navbar"
+//import Navbar from "../../../partials/Navbar"
 /*========== Images ============ */
 import img1 from "../../../assets/img/users/User.jpg";
-import img2 from "../../../assets/img/users/main.jpg";
+//import img2 from "../../../assets/img/users/main.jpg";
 import img3 from "../../../assets/img/users/Slack.jpg";
 import img4 from "../../../assets/img/users/Samsung.jpg";
 import Colors from "../../../utils/colors";
@@ -90,7 +87,7 @@ const buttonStyles1 = {
   width: { xs: "100%", md: "200px" },
   height: "40px",
   borderRadius: "50px",
-  backgroundColor: Colors .palette.color.textColor,
+  backgroundColor: Colors.palette.color.textColor,
   fontSize: "18px",
   color: Colors.palette.primary.main,
   marginTop: "20px",

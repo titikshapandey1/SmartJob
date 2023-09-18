@@ -1,22 +1,22 @@
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
-  AppBar,
+
   Button,
   Typography,
   useMediaQuery,
-  useTheme,
+  //useTheme,
   Box,
   Divider,
   Grid,
   Switch,
   TextField,
 } from "@mui/material";
-import { LocationOn, WorkOutline, Search } from "@mui/icons-material";
+import { LocationOn,WorkOutline, Search } from "@mui/icons-material";
 import ArrowDropDown from "@mui/icons-material/KeyboardArrowDown";
-import DrawerComp from "../../../partials/Drawer";
+//import DrawerComp from "../../../partials/Drawer";
 import Footer from "../../../partials/Footer";
-import Navbar from "../../../partials/Navbar";
+//import Navbar from "../../../partials/Navbar";
 // import classes from "./JobDetails.module.css";
 // import Axios from '../../../utils/Axios';
 // import Navbar from "../../../partials/Navbar";
@@ -30,7 +30,7 @@ const searchBarStyles = {
   margin: "10px",
   padding: "8px 16px",
   border: "1px solid #6973FE",
-  height: "40px",
+  height: "70px",
 };
 
 const searchBarStylesResponsive = {
@@ -61,7 +61,7 @@ const buttonStyles = {
 
 const dividerStyles = {
   backgroundColor: "#6973FE",
-  height: "55px",
+  height: "100%",
 };
 
 const layoutStyles = {
@@ -120,7 +120,7 @@ const layoutStyles2 = {
 
 const JobDetails = () => {
   const [value, setValue] = useState();
-  const theme = useTheme();
+  //const theme = useTheme();
   // const isMatch = useMediaQuery(theme.breakpoints.down("md"));
   const isSmallScreen = useMediaQuery("(max-width: 1080px)");
 
@@ -190,6 +190,27 @@ const JobDetails = () => {
             />
           </Box>
         </Grid>
+        {!isSmallScreen && (
+          <Divider orientation="vertical" sx={dividerStyles} />
+        )}
+        {/* Experience Input */}
+        <Grid item>
+          <Box sx={iconContainerStyles}>
+            <WorkOutline />
+            <TextField
+              label="Experience"
+              variant="outlined"
+              size="small"
+              fullWidth={!isSmallScreen}
+              sx={{
+                "& fieldset": { border: "none" },
+              }}
+            />
+          </Box>
+        </Grid>
+        {!isSmallScreen && (
+          <Divider orientation="vertical" sx={dividerStyles} />
+        )}
 
         {/* Submit Button */}
         <Button type="submit" variant="contained" sx={buttonStyles}>
@@ -205,19 +226,31 @@ const JobDetails = () => {
         }}
       >
         <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            marginRight: isSmallScreen ? "0" : "10px",
-            marginBottom: isSmallScreen ? "10px" : "0",
-            width: isSmallScreen ? "100%" : "auto",
-            flex: "1", 
-          }}
+          // sx={{
+            // display: "flex",
+            // alignItems: "center",
+            // marginRight: isSmallScreen ? "0" : "10px",
+            // marginBottom: isSmallScreen ? "10px" : "0",
+            // width: isSmallScreen ? "100%" : "auto",
+            // flex: "1", 
+            display="inline-block"
+            maxWidth="70%" // Ensures the box doesn't exceed the parent's width
+            whiteSpace="nowrap"
+             overflow="inherit"
+            // textOverflow="ellipsis"
+            // bgcolor="#f5f5f5" // Background color for the box
+            // // p={1} // Padding to create space around the content
+            
+          // }}
         >
           <Typography
             variant="h6"
             component="span"
-            style={{ color: "#6973FE", fontWeight: "600" }}
+            style={{ color: "#6973FE", fontWeight: "600" 
+            ,//whiteSpace: "nowrap", 
+             //overflow: "hidden",   
+            textOverflow: "ellipsis"
+          }}
           >
             Job Search
           </Typography>
@@ -246,7 +279,7 @@ const JobDetails = () => {
                 ...(isSmallScreen && smallLayoutStylesResponsive),
               }}
             >
-              <span style={{ color: "black" }}>Quick Apply</span>
+              <span style={{ color: "black" ,whiteSpace: "nowrap" }}>Quick Apply</span>
             </Box>
           </Grid>
           <Grid item xs={6} sm={4} md={2}>
@@ -256,7 +289,7 @@ const JobDetails = () => {
                 ...(isSmallScreen && smallLayoutStylesResponsive),
               }}
             >
-              <span style={{ color: "black" }}>Location</span>
+              <span style={{ color: "black", whiteSpace: "nowrap"}}>Location</span>
               <ArrowDropDown style={arrowDownStyles} />
             </Box>
           </Grid>
@@ -311,7 +344,7 @@ const JobDetails = () => {
                 ...(isSmallScreen && smallLayoutStylesResponsive),
               }}
             >
-              <span style={{ color: "black" }}>Job Type</span>
+              <span style={{ color: "black" ,whiteSpace: "nowrap"}}>Job Type</span>
               <ArrowDropDown style={arrowDownStyles} />
             </Box>
           </Grid>
@@ -322,7 +355,7 @@ const JobDetails = () => {
                 ...(isSmallScreen && smallLayoutStylesResponsive),
               }}
             >
-              <span style={{ color: "black" }}>Job Freshness</span>
+              <span style={{ color: "black",whiteSpace: "nowrap" }}>Job Freshness</span>
               <ArrowDropDown style={arrowDownStyles} />
             </Box>
           </Grid>
@@ -333,7 +366,7 @@ const JobDetails = () => {
                 ...(isSmallScreen && smallLayoutStylesResponsive),
               }}
             >
-              <span style={{ color: "black" }}>All Filters</span>
+              <span style={{ color: "black",whiteSpace: "nowrap" }}>All Filters</span>
               <ArrowDropDown style={arrowDownStyles} />
             </Box>
           </Grid>
@@ -900,6 +933,7 @@ const JobDetails = () => {
                 "&:hover": {
                   color: "white",
                   backgroundColor: "#7797FE",
+                
                 },
               }}
             >
@@ -916,3 +950,7 @@ const JobDetails = () => {
 };
 
 export default JobDetails;
+
+
+
+

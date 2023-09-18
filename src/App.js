@@ -5,7 +5,9 @@ import Axios from './app/utils/Axios';
 // import AppRouter from './app/routes/index';
 
 function App() {
-  const [loading, setLoading] = useState(false)
+  const [
+    // loading,
+     setLoading] = useState(false)
   const fetchediacticve= async()=>{
     // try{
     //   setLoading(true)
@@ -31,7 +33,9 @@ function App() {
   }
   useEffect(()=>{
     fetchediacticve();
-  },[])
+  },
+  // []
+  )
   return (
     <div>
       <AppRouter/>
