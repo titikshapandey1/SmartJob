@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { 
+  // useEffect, 
+  useState } from "react";
 import {
-  AppBar,
+  // AppBar,
   Button,
-  Tab,
-  Tabs,
-  Toolbar,
+  // Tab,
+  // Tabs,
+  // Toolbar,
   Typography,
   useMediaQuery,
   useTheme,
@@ -16,11 +18,11 @@ import {
   Container,
 } from "@mui/material";
 import { LocationOn, WorkOutline, Search } from "@mui/icons-material";
-import DrawerComp from "../../../partials/Drawer";
+// import DrawerComp from "../../../partials/Drawer";
 // import "../../../partials/Footer.css";
 import Footer from "../../../partials/Footer";
 // import Axios from "../../../utils/Axios";
-import Navbar from "../../../partials/Navbar";
+// import Navbar from "../../../partials/Navbar";
 import Colors from "../../../utils/colors";
 
 const layoutStyles = {
@@ -43,7 +45,7 @@ const searchBarStyles = {
   padding: "8px 16px",
   boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.3)",
   border: "1px solid #6973FE",
-  height: "40px",
+  height: "60px",
 };
 
 const searchBarStylesResponsive = {
@@ -137,7 +139,7 @@ const linkStyles = {
 
 const dividerStyles = {
   backgroundColor: Colors.palette.background.defaults,
-  height: "55px",
+  height: "100%",
 };
 
 const CompanyNames = () => {
