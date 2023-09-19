@@ -258,7 +258,7 @@ const CompanyNames = () => {
 
 
       <Box sx={{    display:{xs:"none",sm:"block",md:"none",xl:"none",lg:"none"},ml:"18%"}}>
-      <Container >
+      <Container > 
       <Grid container spacing={25}>
         {/* Section 1 */}
         <Grid item xs={12} sm={3} md={4}>
