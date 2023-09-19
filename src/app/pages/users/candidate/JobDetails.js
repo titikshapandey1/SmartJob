@@ -31,7 +31,7 @@ const searchBarStyles = {
   margin: "10px",
   padding: "8px 16px",
   border: "1px solid #6973FE",
-  height: "60px",
+  height: "55px",
 };
 
 const searchBarStylesResponsive = {
